@@ -22,7 +22,7 @@
             		<version>LATEST</version>
         	</dependency>
 		<dependency>
-            		<groupId>org.slick2d</groupId>
+            <groupId>org.slick2d</groupId>
 			<artifactId>slick2d-core</artifactId>
 			<version>LATEST</version>
         	</dependency>

@@ -39,6 +39,9 @@ public class Game extends BasicGame {
     }
     
     public static void main(String[] args) throws SlickException {
+        NativeLoader loader = new NativeLoader();
+        loader.loadLibrary("lwjgl64");
+
         AppGameContainer app = new AppGameContainer(new Game());
         app.setDisplayMode(WIDTH, HEIGHT, false);
         app.setForceExit(false);
