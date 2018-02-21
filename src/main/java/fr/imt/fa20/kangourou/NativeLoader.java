@@ -8,7 +8,7 @@ public class NativeLoader {
     public static final Logger LOG = Logger.getLogger(NativeLoader.class.toString());
 
     public NativeLoader() {
-        LOG.info("Setting lib path to '" + System.getProperty("java.io.tmpdir")+"/lib" + "'");
+        //LOG.info("Setting lib path to '" + System.getProperty("java.io.tmpdir")+"/lib" + "'");
         //System.setProperty("java.library.path", System.getProperty("java.io.tmpdir")+"/lib");
         System.setProperty("org.lwjgl.librarypath", System.getProperty("java.io.tmpdir")+"/lib");
     }
@@ -63,7 +63,7 @@ public class NativeLoader {
 
         try {
             String libraryName = getOSSpecificLibraryName(library, false);
-            LOG.info("Looking for " + libraryName);
+            //LOG.info("Looking for " + libraryName);
             in = this.getClass().getClassLoader().getResourceAsStream(libraryName);
             String tmpDirName = System.getProperty("java.io.tmpdir");
             File tmpDir = new File(tmpDirName+"/lib");
@@ -85,7 +85,7 @@ public class NativeLoader {
             while ((cnt = in.read(buf)) >= 1) {
                 out.write(buf, 0, cnt);
             }
-            LOG.info("Saved libfile: " + file.getAbsoluteFile());
+            LOG.info("Native libfile: " + file.getAbsoluteFile());
             return file.getAbsolutePath();
         } finally {
             if (in != null) {
