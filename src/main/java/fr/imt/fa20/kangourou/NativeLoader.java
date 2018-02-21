@@ -31,7 +31,7 @@ public class NativeLoader {
         String path;
 
         if (osName.startsWith("win")) {
-            if (osArch.equalsIgnoreCase("x86")) {
+            if (osArch.equalsIgnoreCase("x86") ||osArch.equalsIgnoreCase("amd64")) {
                 name = library + ".dll";
                 path = "win-x86/";
             } else {
