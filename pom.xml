@@ -15,17 +15,24 @@
 		<maven.compiler.target>1.6</maven.compiler.target>
 	</properties>
 
+	<repositories>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.lwjgl.lwjgl</groupId>
 			<artifactId>lwjgl</artifactId>
-            		<version>LATEST</version>
+            <version>LATEST</version>
         	</dependency>
 		<dependency>
-            <groupId>org.slick2d</groupId>
-			<artifactId>slick2d-core</artifactId>
-			<version>LATEST</version>
-        	</dependency>
+            <groupId>com.github.pasterp</groupId>
+			<artifactId>slick2d</artifactId>
+			<version>f9bf3fe80f</version>
+        </dependency>
 	</dependencies>
 
 	<build>
