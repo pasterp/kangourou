@@ -1,10 +1,6 @@
 package fr.imt.fa20.kangourou;
 
-import org.newdawn.slick.AppGameContainer;
-import org.newdawn.slick.BasicGame;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.SlickException;
+import org.newdawn.slick.*;
 
 /**
  * A game using Slick2d
@@ -15,12 +11,13 @@ public class Game extends BasicGame {
     private static final int WIDTH = 800;
     /** Screen height */
     private static final int HEIGHT = 600;
-    
+
     /** A counter... */
     private int counter;
+    private GameContainer container;
 
     public Game() {
-        super("A Slick2d game");
+        super("Slick Kangourou");
     }
 
     public void render(GameContainer container, Graphics g) throws SlickException {
@@ -31,13 +28,22 @@ public class Game extends BasicGame {
     @Override
     public void init(GameContainer container) throws SlickException {
         counter = 0;
+        this.container = container;
     }
 
     @Override
     public void update(GameContainer container, int delta) throws SlickException {
         counter++;
     }
-    
+
+    @Override
+    public void keyReleased(int key, char c){
+        if(Input.KEY_ESCAPE == key){
+            System.out.println("Bye bye!");
+            container.exit();
+        }
+    }
+
     public static void main(String[] args) throws SlickException {
         NativeLoader loader = new NativeLoader();
         loader.loadLibrary("lwjgl64");
