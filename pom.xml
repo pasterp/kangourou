@@ -31,7 +31,7 @@
 		<dependency>
             <groupId>com.github.pasterp</groupId>
 			<artifactId>slick2d</artifactId>
-			<version>master-SNAPSHOT</version>
+			<version>develop-SNAPSHOT</version>
         </dependency>
 	</dependencies>
 
