@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="2018.02.14" orientation="orthogonal" renderorder="right-down" width="16" height="10" tilewidth="16" tileheight="16" infinite="0" nextobjectid="1">
+ <tileset firstgid="1" source="mininicular.tsx"/>
+ <tileset firstgid="65" source="tile-logic.tsx"/>
+ <layer name="Fond2" width="16" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACrNkYGCwBGIrILYmEdtA9RKj35ZC/XYU6negUL89hfopDb/hqh8AwSWaloACAAA=
+  </data>
+ </layer>
+ <layer name="Fond" width="16" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAW8QMyOBQsQqV8UiFlxYGLMUMWjnxgzCOknZAYx+kGYA4d+YvTCMDoAANcAG/GAAgAA
+  </data>
+ </layer>
+ <layer name="Plateforme" width="16" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNiYGBgGsUM7FiwABXMJdUMbiBmAWJmKOZCMoMTKgaS58GhlxENCyG5QxBJXAmLfeh6kdWBsCQWcUkc+mBYC4iNoRibfgA5uCnWgAIAAA==
+  </data>
+ </layer>
+ <layer name="Logic" width="16" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACpvJgBvMRMKdOPBMPPoJAZjZQ1E/cthQ034vIHZEwzCALHYQi35senHpd0TSj00PsfoJ6cVnD0gMAOXKz4mAAgAA
+  </data>
+ </layer>
+</map>
