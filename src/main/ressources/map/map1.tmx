@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="16" tileheight="16" infinite="0" nextobjectid="1">
+ <tileset firstgid="1" source="sci-fi.tsx"/>
+ <layer name="Calque de Tile 1" width="100" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACu3YPS5nUQCG8Tt3AYZRSbABFOOrkmADKHxWEmwABWZUEqxEgpXoJcZKJGi8yb+73SlO5rnyFG/yyy3OOc37FnfqR9NMJzPJlP7vXkvWkw2N8HFykpxqhCk91e4V0ZSeaveKaEpPtXtFNKWn2r0imtJT7V4RTempdq+IpvRUu1dEU3qq3SuiKT3V7hXRlJ5q94poSk+1e0U0pafavSKa0lPtXhFN6al2r4im9FS7V0RTeqrdK6IpPdXuFdGUnmr3imhKT/XAL03T/Etek+eKqX1P93zK/pT6PW//SD6Tt4qpfU/3fMr+lHo8mUgmk7GKqX1P93zK/pR6OVlJVpOliql9T/d8yv6U+iA5TI6S/YqpfU/3fMr+lPo6uUluk6uKqX1P93zK/pT6PnlIHpO7iql9T/d8yv6U+umbhrI/pR5qm+ZnMpyMJL+S0bb/3yn7U+rfeftsMpfMJwvJYtv/75T9KfVm3r6VbCc7yW6y1/b/O2V/Sn2Wt58nF8mf5G9y2fb/O2V//N/eb1N6qv3fTjSlp9q9IprSU+1eEU3pqXaviKb0VLtXRFN6qt0roik91e4V0ZSeaveKaEpPtXtFNKWn2r0imtJT7V4RTempdq+IpvRUu1dEU3qq3SuiKT3V7hXRlJ5q94poSk+1e0U0pafavSKa0lPtXhFN6al2r4im9FS7V0RTeqrdK6IpPdXuFdGUnuqBvwCET7NnQJwAAA==
+  </data>
+ </layer>
+</map>
