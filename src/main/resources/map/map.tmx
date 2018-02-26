@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.3078" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="16" tileheight="16" infinite="0" nextobjectid="5">
+ <tileset firstgid="1" source="forest.tsx"/>
+ <layer name="bg" width="16" height="9">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACpNlYGCQHcUjCmsToSYODeNSBwBKX+9GQAIAAA==
+  </data>
+ </layer>
+ <layer name="ground" width="16" height="9">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAUDDRSJVFeORUwbiHWAWA8N6yOp0UUS10LTI4uEraEYxHZA0m+HJC6LxgYAFf3hC0ACAAA=
+  </data>
+ </layer>
+ <layer name="signs" width="16" height="9">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAUDDRTI0MNPbUeQCQATYabEQAIAAA==
+  </data>
+ </layer>
+ <objectgroup name="Calque d'objets 1" visible="0">
+  <object id="1" x="0.5" y="112.5" width="109.5" height="32"/>
+  <object id="2" x="145" y="112.5" width="111" height="31"/>
+ </objectgroup>
+</map>
