@@ -16,6 +16,8 @@ public class Game extends BasicGame {
 	/** Screen height */
 	private static final int HEIGHT = 600;
 
+	private int gravity = 3;
+
 	/** Game... */
 	private GameContainer container;
 	private TiledMap map;
@@ -34,6 +36,7 @@ public class Game extends BasicGame {
 	}
 
 	public void render(GameContainer container, Graphics g) throws SlickException {
+		g.translate(container.getWidth() / 2 - this.x, container.getHeight() / 2 - this.y);
 		this.map.render(0, 0);
 
 		g.drawAnimation(animation, x - 50, y - 130);
@@ -67,8 +70,28 @@ public class Game extends BasicGame {
 		}
 
 		if (this.moving) {
-			this.x += .2f * delta * direction;
+			float futurX = this.x;
+			futurX = this.x + .2f * delta * this.direction;
+			Image tile = this.map.getTileImage((int) futurX / this.map.getTileWidth(),
+					(int) this.y / this.map.getTileHeight(), this.map.getLayerIndex("logic"));
+			if (tile != null) {
+				this.moving = false;
+			} else {
+				this.x = futurX;
+			}
 		}
+
+		float futurY = this.y;
+		futurY += .2f * delta * gravity;
+		Image tile = this.map.getTileImage((int) this.x / this.map.getTileWidth(),
+				(int) futurY / this.map.getTileHeight(), this.map.getLayerIndex("logic"));
+		if (tile != null) {
+			this.moving = false;
+		} else {
+			this.y = futurY;
+		}
+		
+
 	}
 
 	@Override
