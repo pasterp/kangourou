@@ -16,14 +16,13 @@ public class Game extends BasicGame {
     private GameContainer container;
     private TiledMap map;
 
-    //Character
-    private float x = 30, y = 110;
-    private int direction = 0;
-    private Animation[] animations = new Animation[2];
-    private boolean moving;
+    private Entity character;
+    
 
-    public Game() {
+    public Game() throws SlickException {
         super("Slick Kangourou");
+
+        character = new Entity();
     }
 
     public void render(GameContainer container, Graphics g) throws SlickException {
@@ -31,9 +30,11 @@ public class Game extends BasicGame {
         this.map.render(0, 0, 0);
         this.map.render(0, 0, 1);
         this.map.render(0, 0, 2);
-        g.drawAnimation(animations[direction], x, y);
+        
 
         g.drawString("Hello, Messire!", 50, 50);
+
+        this.character.draw(g);
 
     }
 
@@ -41,40 +42,23 @@ public class Game extends BasicGame {
     public void init(GameContainer container) throws SlickException {
         this.container = container;
         this.map = new TiledMap("map/map.tmx");
-        SpriteSheet spriteSheet = new SpriteSheet("sprites/perso.png", 16, 16, 1);
-        Animation animation = new Animation();
-        animation.addFrame(spriteSheet.getSprite(0, 0), 250);
-        animation.addFrame(spriteSheet.getSprite(2, 0), 260);
-        animation.addFrame(spriteSheet.getSprite(1, 0), 230);
-        animation.addFrame(spriteSheet.getSprite(2, 0), 260);
-        animation.addFrame(spriteSheet.getSprite(1, 0), 230);
-        animation.addFrame(spriteSheet.getSprite(2, 0), 260);
-        animations[0] = animation;
-
-        Animation animation2 = new Animation();
-        animation2.addFrame(spriteSheet.getSprite(0, 1), 250);
-        animation2.addFrame(spriteSheet.getSprite(2, 1), 260);
-        animation2.addFrame(spriteSheet.getSprite(1, 1), 230);
-        animation2.addFrame(spriteSheet.getSprite(2, 1), 260);
-        animation2.addFrame(spriteSheet.getSprite(1, 1), 230);
-        animation2.addFrame(spriteSheet.getSprite(2, 1), 260);
-        animations[1] = animation2;
+        this.character.loadSprite();
     }
 
     @Override
     public void update(GameContainer container, int delta) throws SlickException {
         //Game logic
-        float futurex=this.x;
-        if (this.moving) {
-            switch (this.direction) {
+        float futurex=character.x;
+        if (character.moving) {
+            switch (character.direction) {
                 case 0: futurex += .1f * delta; break;
                 case 1: futurex -= .1f * delta; break;
             }
 
-            if (isCollision(futurex, this.y+16)) { //+16 pour hauteur du sprite
-                this.moving = false;
+            if (isCollision(futurex, character.y+16)) { //+16 pour hauteur du sprite
+                character.moving = false;
             } else {
-                this.x = futurex;
+                character.x = futurex;
                 //this.y = this.y;
             }
         }
@@ -83,19 +67,32 @@ public class Game extends BasicGame {
 
     @Override
     public void keyReleased(int key, char c){
-        if(Input.KEY_ESCAPE == key){
-            System.out.println("Bye bye!");
-            container.exit();
+        switch(key){
+            case Input.KEY_ESCAPE:
+            case Input.KEY_Q:
+                System.out.println("Bye bye!");
+                container.exit();
+                break;
+            case Input.KEY_RIGHT: 
+                character.moving = false; break;
+            case Input.KEY_LEFT: 
+                character.moving = false; break;
         }
-
-        this.moving = false;
     }
 
     @Override
     public void keyPressed(int key, char c) {
         switch (key) {
-            case Input.KEY_RIGHT:    this.direction = 0; this.moving = true; break;
-            case Input.KEY_LEFT:  this.direction = 1; this.moving = true; break;
+            case Input.KEY_RIGHT:    
+                character.direction = 0; 
+                character.moving = true; 
+                break;
+            case Input.KEY_LEFT:  
+                character.direction = 1; 
+                character.moving = true; 
+                break;
+            case Input.KEY_UP: break;
+            case Input.KEY_DOWN: break;
         }
     }
 
