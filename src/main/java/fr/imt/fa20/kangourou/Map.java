@@ -6,19 +6,26 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 public class Map {
+
 	private TiledMap tiledMap;
 
 	public void init() throws SlickException {
-		this.tiledMap = new TiledMap("map/map3.tmx");
+		this.tiledMap = new TiledMap("map/map_level_one.tmx");
 	}
 
 	public void renderBackground() {
+		// background layer
 		this.tiledMap.render(0, 0, 0);
+		// water layer
+		this.tiledMap.render(0, 0, 1);
+		// roof layer
+		this.tiledMap.render(0, 0, 2);
+
 	}
 
 	public void renderForeground() {
-		this.tiledMap.render(0, 0, 1);
-		this.tiledMap.render(0, 0, 2);
+		// ground layer
+		this.tiledMap.render(0, 0, 3);
 	}
 
 	public boolean isCollision(float x, float y) {
@@ -32,6 +39,10 @@ public class Map {
 			collision = color.getAlpha() > 0;
 		}
 		return collision;
+	}
+
+	public void changeMap(String file) throws SlickException {
+		this.tiledMap = new TiledMap(file);
 	}
 
 	public int getObjectCount() {
@@ -60,9 +71,5 @@ public class Map {
 
 	public String getObjectProperty(int objectID, String propertyName, String def) {
 		return this.tiledMap.getObjectProperty(0, objectID, propertyName, def);
-	}
-
-	public void changeMap(String file) throws SlickException {
-		this.tiledMap = new TiledMap(file);
 	}
 }

@@ -13,18 +13,17 @@
    H4sIAAAAAAAACmNgGAWjYBSMglEwCkbBYABxOPBgMpeaZslCcT4SW5ZMs7CZi24+pWYhu5MQAABWhXQaYAkAAA==
   </data>
  </layer>
- <layer name="ground" width="60" height="10">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACmNgGAWjYBSMglEwmIHiQDuAxkAASvOgYQ4glsaiXgqIOaGYC4seTiwYXR02c7mx6EfXh80uXgJuxGWOLBqWBGI5LGbJYFGLrIcYcWLNxWYeKWahqyVkHilmkRIG5JpLqln49AEATP/mL2AJAAA=
-  </data>
- </layer>
  <layer name="roof" width="60" height="10">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAACktiYGBIAuJCKO0HxMVo2B8qh4wLsIhh04tuRiGSfmLswucufOajuxMmjq6vhAETFBGwpxDqHmx68ZlBil34zD5EwI3I4UEpgNmDzz2DAcDcOQpGwSgYBaNgFAwGAAAJ1Ut8YAkAAA==
   </data>
  </layer>
- <objectgroup name="trigger" visible="0"/>
- <layer name="logic" width="60" height="10">
+ <layer name="ground" width="60" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwmIHiQDuAxkAASvOgYQ4glsaiXgqIOaGYC4seTiwYXR02c7mx6EfXh80uXgJuxGWOLBqWBGI5LGbJYFGLrIcYcWLNxWYeKWahqyVkHilmkRIG5JpLqln49AEATP/mL2AJAAA=
+  </data>
+ </layer>
+ <layer name="logic" width="60" height="10" visible="0">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAChNkZGAQhGKFIY4VkfyCCyuiYVEgRgdLkczDh7HpxWcGKXbhM5sUN1IKlhLpnoEGS6nk31EwCkbBwAEBRkwsiCVfw8RhNLmYmuaSYxYuOVzhQkyZT0p9QIm55JiFSw4dUKs9QC1zyTELpAcA/R0GFGAJAAA=
   </data>

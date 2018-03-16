@@ -46,9 +46,9 @@ public class Game extends BasicGame {
 	@Override
 	public void init(GameContainer container) throws SlickException {
 		this.container = container;
-		this.map = new TiledMap("map/map3.tmx");
+		this.map = new TiledMap("map/map_level_one.tmx");
 
-		SpriteSheet spriteSheet = new SpriteSheet("sprites/character.png", 64, 64);
+		SpriteSheet spriteSheet = new SpriteSheet("sprites/characters.png", 32, 32);
 		this.animations[0] = loadAnimation(spriteSheet, 0, 1, 0);
 		this.animations[1] = loadAnimation(spriteSheet, 0, 1, 1);
 		this.animations[2] = loadAnimation(spriteSheet, 0, 1, 2);
@@ -74,8 +74,7 @@ public class Game extends BasicGame {
 		this.map.render(0, 0, 0);
 		this.map.render(0, 0, 1);
 		this.map.render(0, 0, 2);
-		g.setColor(new Color(0, 0, 0, .5f));
-		g.fillOval((int) x - 16, (int) y - 8, 32, 16);
+		this.map.render(0, 0, 3);
 		g.drawAnimation(animations[direction + (moving ? 4 : 0)], (int) x - 32, (int) y - 60);
 	}
 
