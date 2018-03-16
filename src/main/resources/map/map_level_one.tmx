@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.3078" orientation="orthogonal" renderorder="right-down" width="60" height="10" tilewidth="16" tileheight="16" infinite="0" nextobjectid="1">
+ <tileset firstgid="1" source="forest.tsx"/>
+ <tileset firstgid="137" source="mockup_3.tsx"/>
+ <tileset firstgid="272" source="tile-logic.tsx"/>
+ <layer name="bg2" width="60" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACtvIwMCwcQjgg4PADaN4FI/iUTyKRzE18CEc4gfxYFx68GF85lHDTJD+DVBMTjhcwIPJcR8h8yg1k5SwAwBoBSdpYAkAAA==
+  </data>
+ </layer>
+ <layer name="water" width="60" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwCkbBYABxOPBgMpeaZslCcT4SW5ZMs7CZi24+pWYhu5MQAABWhXQaYAkAAA==
+  </data>
+ </layer>
+ <layer name="ground" width="60" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACmNgGAWjYBSMglEwmIHiQDuAxkAASvOgYQ4glsaiXgqIOaGYC4seTiwYXR02c7mx6EfXh80uXgJuxGWOLBqWBGI5LGbJYFGLrIcYcWLNxWYeKWahqyVkHilmkRIG5JpLqln49AEATP/mL2AJAAA=
+  </data>
+ </layer>
+ <layer name="roof" width="60" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACktiYGBIAuJCKO0HxMVo2B8qh4wLsIhh04tuRiGSfmLswucufOajuxMmjq6vhAETFBGwpxDqHmx68ZlBil34zD5EwI3I4UEpgNmDzz2DAcDcOQpGwSgYBaNgFAwGAAAJ1Ut8YAkAAA==
+  </data>
+ </layer>
+ <objectgroup name="trigger" visible="0"/>
+ <layer name="logic" width="60" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAChNkZGAQhGKFIY4VkfyCCyuiYVEgRgdLkczDh7HpxWcGKXbhM5sUN1IKlhLpnoEGS6nk31EwCkbBwAEBRkwsiCVfw8RhNLmYmuaSYxYuOVzhQkyZT0p9QIm55JiFSw4dUKs9QC1zyTELpAcA/R0GFGAJAAA=
+  </data>
+ </layer>
+</map>
