@@ -3,9 +3,9 @@ package fr.imt.fa20.kangourou.controller;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.KeyListener;
 
-import fr.imt.fa20.kangourou.player.Player;
-import fr.imt.fa20.kangourou.player.PlayerDirection;
-import fr.imt.fa20.kangourou.player.PlayerState;
+import fr.imt.fa20.kangourou.character.Direction;
+import fr.imt.fa20.kangourou.character.player.Player;
+import fr.imt.fa20.kangourou.character.player.PlayerState;
 
 public class PlayerController implements KeyListener {
 
@@ -39,12 +39,12 @@ public class PlayerController implements KeyListener {
 	public void keyPressed(int key, char c) {
 		switch (key) {
 		case Input.KEY_RIGHT:
-			this.player.setDirection(PlayerDirection.RIGHT);
+			this.player.setDirection(Direction.RIGHT);
 			this.player.setState(PlayerState.RUNNING);
 
 			break;
 		case Input.KEY_LEFT:
-			this.player.setDirection(PlayerDirection.LEFT);
+			this.player.setDirection(Direction.LEFT);
 			this.player.setState(PlayerState.RUNNING);
 			break;
 		// case Input.KEY_UP:

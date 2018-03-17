@@ -9,10 +9,10 @@ import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 
 import fr.imt.fa20.kangourou.camera.Camera;
+import fr.imt.fa20.kangourou.character.player.Player;
 import fr.imt.fa20.kangourou.controller.PlayerController;
 import fr.imt.fa20.kangourou.controller.TriggerController;
 import fr.imt.fa20.kangourou.map.Map;
-import fr.imt.fa20.kangourou.player.Player;
 
 public class ObjectsGame extends BasicGame {
 

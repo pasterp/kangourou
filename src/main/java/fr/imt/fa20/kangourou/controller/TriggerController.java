@@ -2,8 +2,8 @@ package fr.imt.fa20.kangourou.controller;
 
 import org.newdawn.slick.SlickException;
 
+import fr.imt.fa20.kangourou.character.player.Player;
 import fr.imt.fa20.kangourou.map.Map;
-import fr.imt.fa20.kangourou.player.Player;
 
 public class TriggerController {
 

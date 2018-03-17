@@ -1,4 +1,4 @@
-package fr.imt.fa20.kangourou.player;
+package fr.imt.fa20.kangourou.character.player;
 
 public enum PlayerState {
 	PREPARING_JUMP,
@@ -12,6 +12,4 @@ public enum PlayerState {
 	RUNNING,
 	CLIMBING,
 	FROM_BEHIND // player's back
-	
-	
 }
