@@ -1,7 +1,9 @@
-package fr.imt.fa20.kangourou;
+package fr.imt.fa20.kangourou.camera;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+
+import fr.imt.fa20.kangourou.player.Player;
 
 public class Camera {
 

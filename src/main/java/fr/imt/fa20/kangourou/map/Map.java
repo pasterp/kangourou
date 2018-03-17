@@ -1,4 +1,4 @@
-package fr.imt.fa20.kangourou.old;
+package fr.imt.fa20.kangourou.map;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
@@ -6,7 +6,6 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
 public class Map {
-
 	private TiledMap tiledMap;
 
 	public void init() throws SlickException {
@@ -72,4 +71,5 @@ public class Map {
 	public String getObjectProperty(int objectID, String propertyName, String def) {
 		return this.tiledMap.getObjectProperty(0, objectID, propertyName, def);
 	}
+
 }

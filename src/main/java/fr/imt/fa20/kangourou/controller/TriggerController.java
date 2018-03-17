@@ -1,6 +1,9 @@
-package fr.imt.fa20.kangourou;
+package fr.imt.fa20.kangourou.controller;
 
 import org.newdawn.slick.SlickException;
+
+import fr.imt.fa20.kangourou.map.Map;
+import fr.imt.fa20.kangourou.player.Player;
 
 public class TriggerController {
 
@@ -13,13 +16,10 @@ public class TriggerController {
 	}
 
 	public void update() throws SlickException {
-		this.player.setOnStair(false);
 		for (int objectID = 0; objectID < this.map.getObjectCount(); objectID++) {
 			if (isInTrigger(objectID)) {
 				if ("teleport".equals(this.map.getObjectType(objectID))) {
 					this.teleport(objectID);
-				} else if ("stair".equals(this.map.getObjectType(objectID))) {
-					this.player.setOnStair(true);
 				} else if ("change-map".equals(this.map.getObjectType(objectID))) {
 					this.changeMap(objectID);
 				}
@@ -35,10 +35,10 @@ public class TriggerController {
 	}
 
 	private void teleport(int objectID) {
-		this.player.setX(Float.parseFloat(this.map.getObjectProperty(objectID, "dest-x",
-				Float.toString(this.player.getX()))));
-		this.player.setY(Float.parseFloat(this.map.getObjectProperty(objectID, "dest-y",
-				Float.toString(this.player.getY()))));
+		this.player.setX(
+				Float.parseFloat(this.map.getObjectProperty(objectID, "dest-x", Float.toString(this.player.getX()))));
+		this.player.setY(
+				Float.parseFloat(this.map.getObjectProperty(objectID, "dest-y", Float.toString(this.player.getY()))));
 	}
 
 	private void changeMap(int objectID) throws SlickException {
