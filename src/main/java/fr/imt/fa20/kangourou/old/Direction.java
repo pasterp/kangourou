@@ -1,4 +1,4 @@
-package fr.imt.fa20.kangourou;
+package fr.imt.fa20.kangourou.old;
 
 public enum Direction {
 	LEFT,

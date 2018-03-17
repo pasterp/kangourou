@@ -1,4 +1,4 @@
-package fr.imt.fa20.kangourou;
+package fr.imt.fa20.kangourou.old;
 
 import org.newdawn.slick.Input;
 import org.newdawn.slick.KeyListener;

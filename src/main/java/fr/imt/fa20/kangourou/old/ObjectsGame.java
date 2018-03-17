@@ -1,41 +1,41 @@
-package fr.imt.fa20.kangourou;
+package fr.imt.fa20.kangourou.old;
 
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
-import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
-
-import fr.imt.fa20.kangourou.old.NativeLoader;
 
 public class ObjectsGame extends BasicGame {
 
+	/** Screen width */
+	private static final int WIDTH = 320;
+	/** Screen height */
+	private static final int HEIGHT = 160;
+
 	private GameContainer container;
-	private Map map = new Map();
-	private Player player = new Player(map);
-	private TriggerController triggers = new TriggerController(map, player);
-	private Camera camera = new Camera(player);
+	private Map map;
+	private Character golem;
+	private Camera camera;
 
 	public static void main(String[] args) throws SlickException {
-		NativeLoader loader = new NativeLoader();
-		loader.loadLibrary("lwjgl64");
-		new AppGameContainer(new ObjectsGame(), 320, 160, false).start();
+		new AppGameContainer(new ObjectsGame(), 800, 600, false).start();
 	}
 
-	public ObjectsGame() {
-		super("Lesson 11 :: ObjectsGame");
+	public ObjectsGame() throws SlickException {
+		super("Level One");
+		this.map = new Map();
+		this.golem = new Golem(map);
+		this.camera = new Camera(golem);
 	}
 
 	@Override
 	public void init(GameContainer container) throws SlickException {
 		this.container = container;
-//		Music background = new Music("sound/lost-in-the-meadows.ogg");
-//		background.loop();
 		this.map.init();
-		this.player.init();
-		PlayerController controler = new PlayerController(this.player);
+		this.golem.init();
+		CharacterController controler = new CharacterController(this.golem);
 		container.getInput().addKeyListener(controler);
 	}
 
@@ -43,14 +43,13 @@ public class ObjectsGame extends BasicGame {
 	public void render(GameContainer container, Graphics g) throws SlickException {
 		this.camera.place(container, g);
 		this.map.renderBackground();
-		this.player.render(g);
+		this.golem.render(g);
 		this.map.renderForeground();
 	}
 
 	@Override
 	public void update(GameContainer container, int delta) throws SlickException {
-		this.triggers.update();
-		this.player.update(delta);
+		this.golem.update(delta);
 		this.camera.update(container);
 	}
 

@@ -1,4 +1,4 @@
-package fr.imt.fa20.kangourou;
+package fr.imt.fa20.kangourou.old;
 
 import java.util.logging.Logger;
 import java.io.*;
