@@ -16,6 +16,9 @@ import fr.imt.fa20.kangourou.map.Map;
 
 public class ObjectsGame extends BasicGame {
 
+	public static final int HEIGHT = 640*2;
+	public static final int WIDTH = 320*2;
+
 	private GameContainer container;
 	private Map map = new Map();
 	private Player player = new Player(map);
@@ -25,7 +28,7 @@ public class ObjectsGame extends BasicGame {
 	public static void main(String[] args) throws SlickException {
 		NativeLoader loader = new NativeLoader();
 		loader.loadLibrary("lwjgl64");
-		new AppGameContainer(new ObjectsGame(), 320, 160, false).start();
+		new AppGameContainer(new ObjectsGame(), HEIGHT, WIDTH, false).start();
 	}
 
 	public ObjectsGame() {
@@ -35,8 +38,8 @@ public class ObjectsGame extends BasicGame {
 	@Override
 	public void init(GameContainer container) throws SlickException {
 		this.container = container;
-//		Music background = new Music("sound/lost-in-the-meadows.ogg");
-//		background.loop();
+		// Music background = new Music("sound/lost-in-the-meadows.ogg");
+		// background.loop();
 		this.map.init();
 		this.player.init();
 		PlayerController controler = new PlayerController(this.player);
@@ -45,6 +48,7 @@ public class ObjectsGame extends BasicGame {
 
 	@Override
 	public void render(GameContainer container, Graphics g) throws SlickException {
+		g.scale(2, 2);// double graphical size
 		this.camera.place(container, g);
 		this.map.renderBackground();
 		this.player.render(g);

@@ -8,7 +8,7 @@ import fr.imt.fa20.kangourou.character.AnimationsLoader.AnimationsLoader;
 import fr.imt.fa20.kangourou.map.Map;
 
 public abstract class Character {
-	private float x = 50, y = 50;
+	private float x = 100, y = 100;
 	private Direction direction = Direction.RIGHT;
 	private Map map;
 
