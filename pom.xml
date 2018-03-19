@@ -26,37 +26,37 @@
 		<dependency>
 			<groupId>org.lwjgl.lwjgl</groupId>
 			<artifactId>lwjgl</artifactId>
-            <version>LATEST</version>
-        	</dependency>
+			<version>LATEST</version>
+		</dependency>
 		<dependency>
-            <groupId>com.github.pasterp</groupId>
+			<groupId>com.github.pasterp</groupId>
 			<artifactId>slick2d</artifactId>
 			<version>master-SNAPSHOT</version>
-        </dependency>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
 			<plugin>
-			    <artifactId>maven-assembly-plugin</artifactId>
-			    <executions>
-			        <execution>
-			            <phase>package</phase>
-			            <goals>
-			                <goal>single</goal>
-			            </goals>
-			        </execution>
-			    </executions>
-			    <configuration>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
 					<archive>
-			            		<manifest>
-			                		<mainClass>fr.imt.fa20.kangourou.Game</mainClass>
-			            		</manifest>
-			        	</archive>
-			        	<descriptorRefs>
+						<manifest>
+							<mainClass>fr.imt.fa20.kangourou.Game</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
 						<descriptorRef>jar-with-dependencies</descriptorRef>
 					</descriptorRefs>
-			    </configuration>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
