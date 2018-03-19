@@ -16,8 +16,8 @@ import fr.imt.fa20.kangourou.map.Map;
 
 public class ObjectsGame extends BasicGame {
 
-	public static final int HEIGHT = 640*2;
-	public static final int WIDTH = 320*2;
+	public static final int HEIGHT = 640;
+	public static final int WIDTH = 320;
 
 	private GameContainer container;
 	private Map map = new Map();
@@ -49,6 +49,7 @@ public class ObjectsGame extends BasicGame {
 	@Override
 	public void render(GameContainer container, Graphics g) throws SlickException {
 		g.scale(2, 2);// double graphical size
+
 		this.camera.place(container, g);
 		this.map.renderBackground();
 		this.player.render(g);
