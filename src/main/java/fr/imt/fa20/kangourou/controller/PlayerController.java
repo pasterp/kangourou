@@ -41,7 +41,6 @@ public class PlayerController implements KeyListener {
 		case Input.KEY_RIGHT:
 			this.player.setDirection(Direction.RIGHT);
 			this.player.setState(PlayerState.RUNNING);
-
 			break;
 		case Input.KEY_LEFT:
 			this.player.setDirection(Direction.LEFT);
@@ -61,7 +60,7 @@ public class PlayerController implements KeyListener {
 
 	@Override
 	public void keyReleased(int key, char c) {
-		this.player.setState(PlayerState.STANDING_BY);
+		this.player.setState(PlayerState.STANDING_BY);		
 	}
 
 }

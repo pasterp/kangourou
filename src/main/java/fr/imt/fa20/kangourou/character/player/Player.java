@@ -1,13 +1,15 @@
 package fr.imt.fa20.kangourou.character.player;
 
 import fr.imt.fa20.kangourou.character.Character;
+
 import org.newdawn.slick.Animation;
-import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
+import org.newdawn.slick.geom.Polygon;
+import org.newdawn.slick.geom.Rectangle;
+import org.newdawn.slick.geom.Shape;
+import org.newdawn.slick.geom.Transform;
 
-import fr.imt.fa20.kangourou.character.Direction;
-import fr.imt.fa20.kangourou.character.AnimationsLoader.AnimationsLoader;
 import fr.imt.fa20.kangourou.character.AnimationsLoader.PlayerAnimations;
 import fr.imt.fa20.kangourou.map.Map;
 
@@ -32,15 +34,32 @@ public class Player extends Character {
 
 		float futurX = getFuturX(delta);
 		float futurY = getFuturY(delta);
+		
+		float vX = futurX - getX();
+		float vY = futurY - getY();
 
-		boolean collision = this.getMap().isCollision(futurX, futurY);
-		if (collision) {
-			// this.moving = false;
-		} else {
-			this.setX(futurX);
-			this.setY(futurY);
+		this.setX(futurX);
+		this.setY(futurY);
+		this.hitbox.setX(futurX - 8);
+		this.hitbox.setY(futurY - 20);
+
+		boolean collision = false;
+		float[] pts = hitbox.getPoints();
+		for (int i = 0; i < pts.length; i += 2) {
+			float x = pts[i];
+			float y = pts[i+1];
+			collision = collision || this.getMap().isCollision(x, y);
+			
+			System.out.print("hitbox : " + x + "  " + y + "   |   ");
 		}
+		System.out.println(collision);
 
+		if (collision) {
+			this.setX(getX() - vX);
+			this.setY(getY() - vY);
+			this.hitbox.setX(hitbox.getX() - vX);
+			this.hitbox.setY(hitbox.getY() - vY);
+		}
 	}
 
 	protected float getFuturX(int delta) {
@@ -58,7 +77,6 @@ public class Player extends Character {
 	}
 
 	protected float getFuturY(int delta) {
-		// TODO
 		float futurY = this.getY();
 		return futurY;
 
