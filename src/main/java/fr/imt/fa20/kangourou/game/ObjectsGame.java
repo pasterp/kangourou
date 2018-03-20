@@ -5,6 +5,7 @@ import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 
 import fr.imt.fa20.kangourou.camera.Camera;
@@ -37,12 +38,11 @@ public class ObjectsGame extends BasicGame {
 	@Override
 	public void init(GameContainer container) throws SlickException {
 		this.container = container;
-		// Music background = new Music("sound/lost-in-the-meadows.ogg");
-		// background.loop();
 		this.map.init();
 		this.player.init();
 		PlayerController controler = new PlayerController(this.player);
 		container.getInput().addKeyListener(controler);
+		this.container = container;
 	}
 
 	@Override

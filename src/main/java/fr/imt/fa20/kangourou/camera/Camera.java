@@ -17,18 +17,17 @@ public class Camera {
 	}
 
 	public void place(GameContainer container, Graphics g) {
-		g.translate(container.getWidth() / 2 - (int) this.xCamera, container.getHeight() / 2
-				- (int) this.yCamera);
+		g.translate(container.getWidth() / 6 - (int) this.xCamera, container.getHeight() /32);
 	}
 
 	public void update(GameContainer container) {
-		int w = container.getWidth() / 4;
+		int w = container.getWidth() / 32;
 		if (this.player.getX() > this.xCamera + w) {
 			this.xCamera = this.player.getX() - w;
 		} else if (this.player.getX() < this.xCamera - w) {
 			this.xCamera = this.player.getX() + w;
 		}
-		int h = container.getHeight() / 4;
+		int h = container.getHeight() / 32;
 		if (this.player.getY() > this.yCamera + h) {
 			this.yCamera = this.player.getY() - h;
 		} else if (this.player.getY() < this.yCamera - h) {
