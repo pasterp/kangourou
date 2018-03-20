@@ -25,6 +25,9 @@ public class Map {
 	public void renderForeground() {
 		// ground layer
 		this.tiledMap.render(0, 0, 3);
+		this.tiledMap.render(0, 0, 4);
+		this.tiledMap.render(0, 0, 5);
+		this.tiledMap.render(0, 0, 6);
 	}
 
 	public boolean isCollision(float x, float y) {
