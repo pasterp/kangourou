@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.3" orientation="orthogonal" renderorder="right-down" width="60" height="10" tilewidth="16" tileheight="16" infinite="0" nextobjectid="1">
+<map version="1.0" tiledversion="1.1.3078" orientation="orthogonal" renderorder="right-down" width="60" height="10" tilewidth="16" tileheight="16" infinite="0" nextobjectid="1">
  <tileset firstgid="1" source="forest.tsx"/>
  <tileset firstgid="137" source="mockup_3.tsx"/>
  <tileset firstgid="272" source="tile-logic.tsx"/>
  <tileset firstgid="528" source="forest2.tsx"/>
  <layer name="bg" width="60" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACtvLxMCwdxSP4lE8JPFKIF4FxKsHgVvo5UcdIN4zCNxFK7wL6kcYf6T5dxSP4uGCAX/ixfJgCQAA
+   H4sIAAAAAAAACtvLxMCwdxSP4lE8ZPFKIF4FxKsHgVvo5TcdIN4zCNxHbbwL6jd08ZHm31E8iocDBgAFoPyQYAkAAA==
   </data>
  </layer>
  <layer name="water" width="60" height="10">
@@ -26,7 +26,7 @@
  </layer>
  <layer name="front_cave" width="60" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACmNgGAWjYBSMgqEBdjENtAvoB/YwjTz/joJRMJwAAGzvCuZgCQAA
+   H4sIAAAAAAAACmNgGAWjYPiAvUwIPFwBsh+Hsz/RAcy/u0aAn/cwjUz/joJRMJwAANdpEBdgCQAA
   </data>
  </layer>
  <layer name="signs" width="60" height="10">
@@ -41,7 +41,7 @@
  </layer>
  <layer name="logic" width="60" height="10" visible="0">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAChNgZGAQGCFYEIgJAZg6dLUwcWLMwWUGMQBdLzIf2R/Y3EGJvaNgFIxUQEr5MByAAiMEKw5C/xJbbqOXg+RiappLjlm45HCFCyzeyMXUNJccs3DJoQNYGqUEU9NccswC6QEAK7H2nmAJAAA=
+   H4sIAAAAAAAAChNgZGAQGCFYEIgjgBgfgKkTZMQuLoBFjlgziAHoepH5yP7A5g50vRFE+Hc4gVH/Dm9AK/8KEJmv6Q1o5V8FRghWHIT+xVVuowP0cpBcTE1zyTELlxw2swSQ4o1cTE1zyTELlxw6gKVRSjA1zSXHLJAeACDv0flgCQAA
   </data>
  </layer>
 </map>
