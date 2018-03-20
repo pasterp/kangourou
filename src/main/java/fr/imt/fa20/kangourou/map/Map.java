@@ -9,7 +9,7 @@ public class Map {
 	private TiledMap tiledMap;
 
 	public void init() throws SlickException {
-		this.tiledMap = new TiledMap("map/map_level_one.tmx");
+		this.tiledMap = new TiledMap("map/map_level_oneV3.tmx");
 	}
 
 	public void renderBackground() {

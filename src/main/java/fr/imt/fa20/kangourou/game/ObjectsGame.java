@@ -40,7 +40,7 @@ public class ObjectsGame extends BasicGame {
 		this.container = container;
 		this.map.init();
 		this.player.init();
-		PlayerController controler = new PlayerController(this.player);
+		PlayerController controler = new PlayerController(this.player, container.getInput());
 		container.getInput().addKeyListener(controler);
 		this.container = container;
 	}

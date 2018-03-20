@@ -10,14 +10,16 @@ import fr.imt.fa20.kangourou.character.player.PlayerState;
 public class PlayerController implements KeyListener {
 
 	private Player player;
+	private Input input;
 
-	public PlayerController(Player player) {
+	public PlayerController(Player player, Input input) {
 		this.player = player;
+		this.input = input;
 	}
 
 	@Override
 	public void setInput(Input input) {
-
+		this.input = input;
 	}
 
 	@Override
@@ -60,7 +62,15 @@ public class PlayerController implements KeyListener {
 
 	@Override
 	public void keyReleased(int key, char c) {
-		this.player.setState(PlayerState.STANDING_BY);		
+		if (key == Input.KEY_RIGHT && input.isKeyDown(Input.KEY_LEFT)) {
+			this.player.setState(PlayerState.RUNNING);
+			this.player.setDirection(Direction.LEFT);
+		} else if (key == Input.KEY_LEFT && input.isKeyDown(Input.KEY_RIGHT)) {
+			this.player.setState(PlayerState.RUNNING);
+			this.player.setDirection(Direction.RIGHT);
+		} else {
+			this.player.setState(PlayerState.STANDING_BY);
+		}
 	}
 
 }
