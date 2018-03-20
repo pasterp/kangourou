@@ -57,10 +57,10 @@ public class PlayerController implements KeyListener {
 
 	@Override
 	public void keyReleased(int key, char c) {
-		if (key == Input.KEY_RIGHT && input.isKeyDown(Input.KEY_LEFT)) {
+		if (input.isKeyDown(Input.KEY_LEFT)) {
 			this.player.setState(PlayerState.RUNNING);
 			this.player.setDirection(Direction.LEFT);
-		} else if (key == Input.KEY_LEFT && input.isKeyDown(Input.KEY_RIGHT)) {
+		} else if (input.isKeyDown(Input.KEY_RIGHT)) {
 			this.player.setState(PlayerState.RUNNING);
 			this.player.setDirection(Direction.RIGHT);
 		} else {

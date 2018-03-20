@@ -9,7 +9,7 @@ import fr.imt.fa20.kangourou.map.Map;
 
 public abstract class Character {
 
-	private float x = 200, y = 100;
+	private float x = 100, y = 40;
 
 	private Direction direction = Direction.RIGHT;
 	private Map map;
