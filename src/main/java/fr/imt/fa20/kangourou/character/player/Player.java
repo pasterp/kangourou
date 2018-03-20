@@ -29,55 +29,56 @@ public class Player extends Character {
 	}
 
 	public void update(int delta) {
-		if (this.state == PlayerState.STANDING_BY)
-			return;
 
 		float futurX = getFuturX(delta);
 		float futurY = getFuturY(delta);
-		
+
 		float vX = futurX - getX();
 		float vY = futurY - getY();
 
 		this.setX(futurX);
-		this.setY(futurY);
 		this.hitbox.setX(futurX - 8);
-		this.hitbox.setY(futurY - 20);
-
-		boolean collision = false;
-		float[] pts = hitbox.getPoints();
-		for (int i = 0; i < pts.length; i += 2) {
-			float x = pts[i];
-			float y = pts[i+1];
-			collision = collision || this.getMap().isCollision(x, y);
-			
-			System.out.print("hitbox : " + x + "  " + y + "   |   ");
-		}
-		System.out.println(collision);
-
-		if (collision) {
+		if (isCollision()) {
 			this.setX(getX() - vX);
-			this.setY(getY() - vY);
 			this.hitbox.setX(hitbox.getX() - vX);
+		}
+		
+		this.setY(futurY);
+		this.hitbox.setY(futurY - 20);
+		if (isCollision()) {
+			this.setY(getY() - vY);
 			this.hitbox.setY(hitbox.getY() - vY);
 		}
 	}
 
+	private boolean isCollision() {
+		boolean collision = false;
+		float[] pts = hitbox.getPoints();
+		for (int i = 0; i < pts.length; i += 2) {
+			float x = pts[i];
+			float y = pts[i + 1];
+			collision = collision || this.getMap().isCollision(x, y);
+		}
+		return collision;
+	}
+
 	protected float getFuturX(int delta) {
 		float futurX = this.getX();
-		switch (this.getDirection()) {
-		case RIGHT:
-			futurX = this.getX() + .1f * delta;
-			break;
-		case LEFT:
-			futurX = this.getX() - .1f * delta;
-			break;
+		if (this.state != PlayerState.STANDING_BY) {
+			switch (this.getDirection()) {
+			case RIGHT:
+				futurX = this.getX() + .1f * delta;
+				break;
+			case LEFT:
+				futurX = this.getX() - .1f * delta;
+				break;
+			}
 		}
-
 		return futurX;
 	}
 
 	protected float getFuturY(int delta) {
-		float futurY = this.getY();
+		float futurY = this.getY() + .1f;
 		return futurY;
 
 	}

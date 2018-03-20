@@ -48,14 +48,9 @@ public class PlayerController implements KeyListener {
 			this.player.setDirection(Direction.LEFT);
 			this.player.setState(PlayerState.RUNNING);
 			break;
-		// case Input.KEY_UP:
-		// this.player.setJumpState(JumpState.PREPARING);
-		// this.player.setMoving(true);
-		// break;
-		// case Input.KEY_DOWN:
-		// this.player.setFaceRight(true);
-		// this.player.setMoving(true);
-		// break;
+		case Input.KEY_SPACE:
+			this.player.setState(PlayerState.PREPARING_JUMP);
+			break;
 		}
 
 	}
