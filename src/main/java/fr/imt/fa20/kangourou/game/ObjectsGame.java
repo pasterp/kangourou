@@ -52,7 +52,7 @@ public class ObjectsGame extends BasicGame {
 		this.camera.place(container, g);
 		this.map.renderBackground();
 		this.player.render(g);
-		this.map.renderForeground();
+		this.map.renderForeground(g);
 	}
 
 	@Override

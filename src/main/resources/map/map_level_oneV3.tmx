@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.3078" orientation="orthogonal" renderorder="right-down" width="60" height="10" tilewidth="16" tileheight="16" infinite="0" nextobjectid="1">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="60" height="10" tilewidth="16" tileheight="16" infinite="0" nextobjectid="1">
  <tileset firstgid="1" source="forest.tsx"/>
  <tileset firstgid="137" source="mockup_3.tsx"/>
  <tileset firstgid="272" source="tile-logic.tsx"/>
@@ -44,7 +44,7 @@
    H4sIAAAAAAAACmNgGAWjYBSMglEwXEAJE3bxVhzixABi9OKyl9puGQWjYKgAABosV79gCQAA
   </data>
  </layer>
- <layer name="logic" width="60" height="10">
+ <layer name="logic" width="60" height="10" visible="0">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAACuWUYQrAIAiF6wZ2g3ar7n+SNYYgosOZsmAP3o/mfPjVFtRS4Cdu02P6Sfheq/JzEGrWDIt4L11TDmkO3jsMvF8LmSK0Iy/9/ug6QsgbmbmqDF7MyDpfUP4na1/W/mfx9nr72JBXu7elOeg96DXnWMn1zKjVtH3Hc/Na4vXmembUajyrB1jiXcl6O+PVcwLnNeXlYAkAAA==
   </data>
