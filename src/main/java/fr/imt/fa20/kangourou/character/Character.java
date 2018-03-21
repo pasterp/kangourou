@@ -43,7 +43,7 @@ public abstract class Character {
 		// coordonnées d'affichage correspondant aux pieds du personnage
 		g.drawAnimation(this.getAnimation(), (int) x - 16, (int) y - 32);
 		
-		g.draw(hitbox);
+//		g.draw(hitbox);
 		
 	}
 
