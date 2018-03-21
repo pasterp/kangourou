@@ -49,71 +49,54 @@ public class Player extends Character {
 		if (isCollision()) { // Collision
 			this.setY(getY() - vY);
 			this.hitbox.setY(hitbox.getY() - vY);
-			// if (this.getVelocityY() < 0) { // Head collision
-			// this.setVerticalState(VerticalState.FALLING);
-			// this.setVelocityY(GRAVITY);
-			// } else if (this.getVelocityY() > 0 && this.getVerticalState() ==
-			// VerticalState.FALLING) { // Feet collision
-			// this.setVerticalState(VerticalState.LANDING);
-			// this.setVelocityY(0);
-			// }
-
-			switch (this.getVerticalState()) {
-			case PREPARING_JUMP:
-				this.setVelocityY(-0.4f);
-				break;
-			case JUMPING:
-				this.setVerticalState(VerticalState.FALLING);
-				this.setVelocityY(GRAVITY);
-				break;
-			case FALLING:
-				this.setVerticalState(VerticalState.LANDING);
-				this.setVelocityY(0);
-				break;
-			case LANDING:
-				this.setVerticalState(VerticalState.NONE);
-				break;
-			case NONE:
-				break;
-			}
+			this.handelingJumpWhenCollision();
 		} else {// No collision
-			if (this.getVerticalState().equals(VerticalState.PREPARING_JUMP)) {
-				this.setVerticalState(VerticalState.JUMPING);
-			} else if ((this.getVerticalState() == VerticalState.JUMPING
-					|| this.getVerticalState() == VerticalState.FALLING)) {
-				this.setVelocityY(this.getVelocityY() + GRAVITY);
-			} else if (this.getVerticalState() == VerticalState.NONE && this.getVelocityY() != 0) {
-				this.setVerticalState(VerticalState.FALLING);
-
-			} else if (this.getVerticalState() == VerticalState.NONE && this.getVelocityY() == 0) {
-				this.setVelocityY(GRAVITY);
-			} else if (this.getVerticalState() == VerticalState.LANDING) {
-				this.setVerticalState(VerticalState.NONE);
-				this.setVelocityY(0);
-
-			}
-			// switch (this.getVerticalState()) {
-			// case JUMPING:
-			// this.setVelocityY(this.getVelocityY() + GRAVITY);
-			//
-			// break;
-			// case FALLING:
-			// this.setVelocityY(this.getVelocityY() + GRAVITY);
-			// break;
-			// case LANDING:
-			// this.setVerticalState(VerticalState.NONE);
-			// break;
-			// case NONE:
-			// this.setVelocityY(GRAVITY);
-			// break;
-			// }
+			this.handelingJumpWhenNoCollision();
 		}
-		System.out.println("Vertical=" + this.getVerticalState() + "/horizontal=" + this.getHorizontalState()
-				+ "/VelocityY=" + this.getVelocityY());
 	}
 
-	private boolean isCollision(float x, float y) {
-		return false || this.getMap().isCollision(x, y);
+	private void handelingJumpWhenCollision() {
+		switch (this.getVerticalState()) {
+		case PREPARING_JUMP:
+			this.setVelocityY(-0.3f);
+			break;
+		case JUMPING:
+			this.setVerticalState(VerticalState.FALLING);
+			this.setVelocityY(GRAVITY);
+			break;
+		case FALLING:
+			this.setVerticalState(VerticalState.LANDING);
+			this.setVelocityY(0);
+			break;
+		case LANDING:
+			this.setVerticalState(VerticalState.NONE);
+			break;
+		case NONE:
+			break;
+		}
+	}
+
+	private void handelingJumpWhenNoCollision() {
+		switch (this.getVerticalState()) {
+		case PREPARING_JUMP:
+			this.setVerticalState(VerticalState.JUMPING);
+			break;
+		case JUMPING:
+		case FALLING:
+			this.setVelocityY(this.getVelocityY() + GRAVITY);
+			this.setVerticalState(this.getVelocityY() < 0 ? VerticalState.JUMPING : VerticalState.FALLING);
+			break;
+		case LANDING:
+			this.setVerticalState(VerticalState.NONE);
+			this.setVelocityY(0);
+			break;
+		case NONE:
+			if (this.getVelocityY() == 0) {
+				this.setVelocityY(GRAVITY);
+			} else {
+				this.setVerticalState(VerticalState.FALLING);
+			}
+		}
 	}
 
 	private boolean isCollision() {
