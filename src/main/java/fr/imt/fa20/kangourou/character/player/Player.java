@@ -45,7 +45,7 @@ public class Player extends Character {
 		}
 
 		this.setY(futurY);
-		this.hitbox.setY(futurY - 18);
+		this.hitbox.setY(futurY - 21);
 		if (isCollision()) { // Collision
 			this.setY(getY() - vY);
 			this.hitbox.setY(hitbox.getY() - vY);

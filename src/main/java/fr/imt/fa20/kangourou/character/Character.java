@@ -25,7 +25,7 @@ public abstract class Character {
 	public Character(Map map) {
 		this.map = map;
 
-		this.hitbox = new Rectangle(this.getX() - 8, this.getY() - 20, 12, 17);
+		this.hitbox = new Rectangle(this.getX() - 8, this.getY() - 20, 12, 20);
 
 	}
 
