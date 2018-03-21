@@ -31,7 +31,7 @@
  </layer>
  <layer name="front_cave" width="60" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACmNgGAWjYPiAvUwIPFwBsh+Hsz/RAcy/u0aAn/cwjUz/joJRMJwAANdpEBdgCQAA
+   H4sIAAAAAAAACmNgGAWjYBSMgqEB9jIxMOxiGmhX0B7sYYL4daT5dxSMguEEAMa5BN1gCQAA
   </data>
  </layer>
  <layer name="signs" width="60" height="10">
@@ -46,7 +46,7 @@
  </layer>
  <layer name="logic" width="60" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACuWUYQrAIAiF6wZ2g3ar7n+SNYYgosOZsmAP3o/mfPjVFtRS4Cdu02P6Sfheq/JzEGrWDIt4L11TDmkO3jsMvF8LmSK0Iy/9/ug6QsgbmbmqDF7MyDpfUP4na1/W/mfx9nr72JBXu7elOeg96DXnWMn1zKjVtH3Hc/Na4vXmembUajyrB1jiXcl6O+PVcwLnNeXlYAkAAA==
+   H4sIAAAAAAAACuWUDQqAIAyF9QZ6A7uV9z9JExqM8QY21w/14BG29thXZskpFXI9rl/2YOzkRt7ISPxczfh+AbXZjBnpXrmWHGgO3dsneJ8WM0Xojbxy/8l1RO5feDmDeaMl/ytPX+QelrqKtzn3zB281rmN5pDnoNeaYyXXM6NVs947fzevEa831zOjVdNZLcCIdyXr7IyjZwdPakJAYAkAAA==
   </data>
  </layer>
 </map>

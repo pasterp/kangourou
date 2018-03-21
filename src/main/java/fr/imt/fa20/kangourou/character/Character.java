@@ -10,7 +10,7 @@ import fr.imt.fa20.kangourou.character.state.VerticalState;
 import fr.imt.fa20.kangourou.map.Map;
 
 public abstract class Character {
-	public static final float GRAVITY = 0.002f;
+	public static final float GRAVITY = 0.001f;
 
 	private float x = 90, y = 70;
 	float velocityY; // Velocity of the character
