@@ -25,7 +25,7 @@ public abstract class Character {
 	public Character(Map map) {
 		this.map = map;
 
-		this.hitbox = new Rectangle(this.getX() - 8, this.getY() - 20, 15, 20);
+		this.hitbox = new Rectangle(this.getX() - 8, this.getY() - 20, 12, 17);
 
 	}
 
@@ -43,7 +43,7 @@ public abstract class Character {
 		// coordonnées d'affichage correspondant aux pieds du personnage
 		g.drawAnimation(this.getAnimation(), (int) x - 16, (int) y - 32);
 		
-		g.draw(hitbox);
+//		g.draw(hitbox);
 		
 	}
 

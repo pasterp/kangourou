@@ -59,10 +59,10 @@ public class Map {
 		// grass
 		this.tiledMap.render(0, 0, 7);
 
-		for (Shape r : collisions) {
-			g.setColor(Color.red);
-			g.draw(r);
-		}
+//		for (Shape r : collisions) {
+//			g.setColor(Color.red);
+//			g.draw(r);
+//		}
 	}
 
 	public boolean isCollision(float x, float y) {
@@ -108,6 +108,14 @@ public class Map {
 
 	public String getObjectProperty(int objectID, String propertyName, String def) {
 		return this.tiledMap.getObjectProperty(0, objectID, propertyName, def);
+	}
+
+	public boolean isCollision(Shape hitbox) {
+		for(Shape s : collisions) {
+			if(s.intersects(hitbox))
+				return true;
+		}
+		return false;
 	}
 
 }

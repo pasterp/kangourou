@@ -47,7 +47,7 @@ public class ObjectsGame extends BasicGame {
 
 	@Override
 	public void render(GameContainer container, Graphics g) throws SlickException {
-		//g.scale(2, 2);// double graphical size
+		g.scale(2, 2);// double graphical size
 
 		this.camera.place(container, g);
 		this.map.renderBackground();

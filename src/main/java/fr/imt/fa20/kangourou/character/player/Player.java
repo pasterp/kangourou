@@ -38,14 +38,14 @@ public class Player extends Character {
 		float vY = futurY - getY();
 
 		this.setX(futurX);
-		this.hitbox.setX(futurX - 8);
+		this.hitbox.setX(futurX - 7);
 		if (isCollision()) {
 			this.setX(getX() - vX);
 			this.hitbox.setX(hitbox.getX() - vX);
 		}
 
 		this.setY(futurY);
-		this.hitbox.setY(futurY - 20);
+		this.hitbox.setY(futurY - 18);
 		if (isCollision()) { // Collision
 			this.setY(getY() - vY);
 			this.hitbox.setY(hitbox.getY() - vY);
@@ -112,19 +112,8 @@ public class Player extends Character {
 				+ "/VelocityY=" + this.getVelocityY());
 	}
 
-	private boolean isCollision(float x, float y) {
-		return false || this.getMap().isCollision(x, y);
-	}
-
 	private boolean isCollision() {
-		boolean collision = false;
-		float[] pts = hitbox.getPoints();
-		for (int i = 0; i < pts.length; i += 2) {
-			float x = pts[i];
-			float y = pts[i + 1];
-			collision = collision || this.getMap().isCollision(x, y);
-		}
-		return collision;
+		return this.getMap().isCollision(this.hitbox);
 	}
 
 	protected float getFuturX(int delta) {
