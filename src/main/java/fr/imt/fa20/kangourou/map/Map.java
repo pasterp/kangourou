@@ -13,21 +13,26 @@ public class Map {
 	}
 
 	public void renderBackground() {
-		// background layer
+		// background
 		this.tiledMap.render(0, 0, 0);
-		// water layer
+		// water
 		this.tiledMap.render(0, 0, 1);
-		// roof layer
+		// roof
 		this.tiledMap.render(0, 0, 2);
+		// ground
+		this.tiledMap.render(0, 0, 3);
+		// lader
+		this.tiledMap.render(0, 0, 4);
 
 	}
 
 	public void renderForeground() {
-		// ground layer
-		this.tiledMap.render(0, 0, 3);
-		this.tiledMap.render(0, 0, 4);
+		// front cave
 		this.tiledMap.render(0, 0, 5);
+		// signs
 		this.tiledMap.render(0, 0, 6);
+		// grass
+		this.tiledMap.render(0, 0, 7);
 	}
 
 	public boolean isCollision(float x, float y) {
@@ -36,10 +41,10 @@ public class Map {
 		int logicLayer = this.tiledMap.getLayerIndex("logic");
 		Image tile = this.tiledMap.getTileImage((int) x / tileW, (int) y / tileH, logicLayer);
 		boolean collision = tile != null;
-//		if (collision) {
-//			Color color = tile.getColor((int) x % tileW, (int) y % tileH);
-//			collision = color.getAlpha() > 0;
-//		}
+		// if (collision) {
+		// Color color = tile.getColor((int) x % tileW, (int) y % tileH);
+		// collision = color.getAlpha() > 0;
+		// }
 		return collision;
 	}
 

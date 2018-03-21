@@ -5,22 +5,28 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 
+import fr.imt.fa20.kangourou.character.state.HorizontalState;
+import fr.imt.fa20.kangourou.character.state.VerticalState;
 import fr.imt.fa20.kangourou.map.Map;
 
 public abstract class Character {
+	public static final float GRAVITY = 0.002f;
 
-	private float x = 100, y = 40;
+	private float x = 90, y = 70;
+	float velocityY; // Velocity of the character
 
+	private HorizontalState horizontalState = HorizontalState.STANDING_BY;
+	private VerticalState verticalState = VerticalState.NONE;
 	private Direction direction = Direction.RIGHT;
 	private Map map;
-	
+
 	protected Rectangle hitbox;
 
 	public Character(Map map) {
 		this.map = map;
-		
-		this.hitbox = new Rectangle(this.getX()-8, this.getY()-20, 15, 20);
-		
+
+		this.hitbox = new Rectangle(this.getX() - 8, this.getY() - 20, 15, 20);
+
 	}
 
 	public abstract void init() throws SlickException;
@@ -37,7 +43,6 @@ public abstract class Character {
 		// coordonnées d'affichage correspondant aux pieds du personnage
 		g.drawAnimation(this.getAnimation(), (int) x - 16, (int) y - 32);
 		
-		g.draw(hitbox);
 	}
 
 	public float getX() {
@@ -70,6 +75,30 @@ public abstract class Character {
 
 	public void setMap(Map map) {
 		this.map = map;
+	}
+
+	public HorizontalState getHorizontalState() {
+		return horizontalState;
+	}
+
+	public void setHorizontalState(HorizontalState horizontalState) {
+		this.horizontalState = horizontalState;
+	}
+
+	public VerticalState getVerticalState() {
+		return verticalState;
+	}
+
+	public void setVerticalState(VerticalState verticalState) {
+		this.verticalState = verticalState;
+	}
+
+	public float getVelocityY() {
+		return velocityY;
+	}
+
+	public void setVelocityY(float velocityY) {
+		this.velocityY = velocityY;
 	}
 
 }

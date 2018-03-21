@@ -6,6 +6,8 @@ import org.newdawn.slick.KeyListener;
 import fr.imt.fa20.kangourou.character.Direction;
 import fr.imt.fa20.kangourou.character.player.Player;
 import fr.imt.fa20.kangourou.character.player.PlayerState;
+import fr.imt.fa20.kangourou.character.state.HorizontalState;
+import fr.imt.fa20.kangourou.character.state.VerticalState;
 
 public class PlayerController implements KeyListener {
 
@@ -42,14 +44,23 @@ public class PlayerController implements KeyListener {
 		switch (key) {
 		case Input.KEY_RIGHT:
 			this.player.setDirection(Direction.RIGHT);
-			this.player.setState(PlayerState.RUNNING);
+			this.player.setHorizontalState(HorizontalState.RUNNING);
 			break;
 		case Input.KEY_LEFT:
 			this.player.setDirection(Direction.LEFT);
-			this.player.setState(PlayerState.RUNNING);
+			this.player.setHorizontalState(HorizontalState.RUNNING);
+			break;
+		case Input.KEY_UP:
+			if (this.player.getVerticalState() == VerticalState.NONE) {
+				this.player.setVerticalState(VerticalState.PREPARING_JUMP);
+				//this.player.setHorizontalState(HorizontalState.PREPARING_JUMP);
+				//this.player.setVerticalState(VerticalState.JUMPING);
+				//this.player.setVelocityY(-0.5f);
+			}
+
 			break;
 		case Input.KEY_SPACE:
-			this.player.setState(PlayerState.PREPARING_JUMP);
+			this.player.setHorizontalState(HorizontalState.PUNCHING);
 			break;
 		}
 
@@ -58,13 +69,13 @@ public class PlayerController implements KeyListener {
 	@Override
 	public void keyReleased(int key, char c) {
 		if (input.isKeyDown(Input.KEY_LEFT)) {
-			this.player.setState(PlayerState.RUNNING);
+			this.player.setHorizontalState(HorizontalState.RUNNING);
 			this.player.setDirection(Direction.LEFT);
 		} else if (input.isKeyDown(Input.KEY_RIGHT)) {
-			this.player.setState(PlayerState.RUNNING);
+			this.player.setHorizontalState(HorizontalState.RUNNING);
 			this.player.setDirection(Direction.RIGHT);
 		} else {
-			this.player.setState(PlayerState.STANDING_BY);
+			this.player.setHorizontalState(HorizontalState.STANDING_BY);
 		}
 	}
 
