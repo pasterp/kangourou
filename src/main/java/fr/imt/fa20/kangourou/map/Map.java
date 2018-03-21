@@ -1,15 +1,40 @@
 package fr.imt.fa20.kangourou.map;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.logging.Level;
+
 import org.newdawn.slick.Color;
+import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.GeomUtil;
+import org.newdawn.slick.geom.Rectangle;
+import org.newdawn.slick.geom.Shape;
+import org.newdawn.slick.geom.Transform;
 import org.newdawn.slick.tiled.TiledMap;
+import org.w3c.dom.css.Rect;
 
 public class Map {
 	private TiledMap tiledMap;
+	private List<Rectangle> collisions;
 
 	public void init() throws SlickException {
 		this.tiledMap = new TiledMap("map/map_level_oneV3.tmx");
+
+		collisions = new LinkedList<>();
+		int logicLayer = tiledMap.getLayerIndex("logic");
+		int tileSize = tiledMap.getTileWidth();
+
+		for (int x = 0; x < tiledMap.getWidth(); x++) {
+			for (int y = 0; y < tiledMap.getHeight(); y++) {
+				Image tile = tiledMap.getTileImage(x, y, logicLayer);
+				if (tile != null) {
+					collisions.add(new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize));
+				}
+			}
+		}
+
 	}
 
 	public void renderBackground() {
@@ -26,13 +51,18 @@ public class Map {
 
 	}
 
-	public void renderForeground() {
+	public void renderForeground(Graphics g) {
 		// front cave
 		this.tiledMap.render(0, 0, 5);
 		// signs
 		this.tiledMap.render(0, 0, 6);
 		// grass
 		this.tiledMap.render(0, 0, 7);
+
+//		for (Shape r : collisions) {
+//			g.setColor(Color.red);
+//			g.draw(r);
+//		}
 	}
 
 	public boolean isCollision(float x, float y) {
@@ -78,6 +108,14 @@ public class Map {
 
 	public String getObjectProperty(int objectID, String propertyName, String def) {
 		return this.tiledMap.getObjectProperty(0, objectID, propertyName, def);
+	}
+
+	public boolean isCollision(Shape hitbox) {
+		for(Shape s : collisions) {
+			if(s.intersects(hitbox))
+				return true;
+		}
+		return false;
 	}
 
 }
