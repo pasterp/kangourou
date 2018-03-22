@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="60" height="10" tilewidth="16" tileheight="16" nextobjectid="6">
+ <tileset firstgid="1" source="forest.tsx"/>
+ <tileset firstgid="137" source="mockup_3.tsx"/>
+ <tileset firstgid="272" source="tile-logic.tsx"/>
+ <tileset firstgid="528" source="forest2.tsx"/>
+ <layer name="bg" width="60" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA9vLxMCwdxSP4lE8ikfxKB7Fo3gUUw0DAJelMMBgCQAA
+  </data>
+ </layer>
+ <layer name="ground" width="60" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAWjYBQMVeDMxMDgAsSuTAgxGyDbjgm3HmoAetgBA8h+DIHaGYZkty+Q7U9jt9DDDnQQNgL9aznIMbWBLBqWBGIdJtwYXT1MDzHixJqJrI9W/kW2A5+7cPmNmDAgx1xqAwCAmEQKYAkAAA==
+  </data>
+ </layer>
+ <layer name="signs" width="60" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAWjYBSMglEwHIA8E2X69SnUPwpGwShAAADxYXMqYAkAAA==
+  </data>
+ </layer>
+ <layer name="grass" width="60" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAWjYBSMglEwFEArE2E1JTjUEKOXEntHwSgYBagAAJv65JZgCQAA
+  </data>
+ </layer>
+ <layer name="logic" width="60" height="10" opacity="0.2">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAxNgZGAQGGJ4FIyCUTAKRsHwA6TUA4JINLmYGuZS6l9i3QXCCkCsSAGmhrmUAFz2YHMPpZha5lICAMhrq2NgCQAA
+  </data>
+ </layer>
+ <objectgroup name="teleport">
+  <object id="1" name="go_level1" x="481" y="65.5" width="29" height="48"/>
+  <object id="2" name="exit" x="82" y="65.5" width="28.5" height="46.5"/>
+ </objectgroup>
+ <objectgroup name="sign">
+  <object id="3" name="go_out" x="192.5" y="97.5" width="16" height="15"/>
+  <object id="5" name="start" x="449" y="100.5" width="15" height="11"/>
+ </objectgroup>
+</map>
