@@ -18,13 +18,18 @@ import org.w3c.dom.css.Rect;
 public class Map {
 	private TiledMap tiledMap;
 	private List<Rectangle> collisions;
+	public int width;
+	public int height;
 
 	public void init() throws SlickException {
 		this.tiledMap = new TiledMap("map/map_level_oneV3.tmx");
+		width = tiledMap.getWidth();
+		height = tiledMap.getHeight();
 
 		collisions = new LinkedList<Rectangle>();
 		int logicLayer = tiledMap.getLayerIndex("logic");
 		int tileSize = tiledMap.getTileWidth();
+
 
 		for (int x = 0; x < tiledMap.getWidth(); x++) {
 			for (int y = 0; y < tiledMap.getHeight(); y++) {
