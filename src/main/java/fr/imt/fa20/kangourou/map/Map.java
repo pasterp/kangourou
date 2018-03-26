@@ -46,18 +46,17 @@ public class Map {
 		this.tiledMap.render(0, 0, 2);
 		// ground
 		this.tiledMap.render(0, 0, 3);
-		// lader
-		this.tiledMap.render(0, 0, 4);
+
 
 	}
 
 	public void renderForeground(Graphics g) {
 		// front cave
-		this.tiledMap.render(0, 0, 5);
+		this.tiledMap.render(0, 0, 4);
 		// signs
-		this.tiledMap.render(0, 0, 6);
+		this.tiledMap.render(0, 0, 5);
 		// grass
-		this.tiledMap.render(0, 0, 7);
+		this.tiledMap.render(0, 0, 6);
 
 //		for (Shape r : collisions) {
 //			g.setColor(Color.red);
