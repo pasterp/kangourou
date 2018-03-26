@@ -109,12 +109,12 @@ public class Map {
 		return this.tiledMap.getObjectProperty(0, objectID, propertyName, def);
 	}
 
-	public boolean isCollision(Shape hitbox) {
+	public Shape isCollision(Shape hitbox) {
 		for(Shape s : collisions) {
 			if(s.intersects(hitbox))
-				return true;
+				return s;
 		}
-		return false;
+		return null;
 	}
 
 }

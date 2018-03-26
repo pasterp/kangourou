@@ -5,6 +5,7 @@ import fr.imt.fa20.kangourou.character.Character;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
+import org.newdawn.slick.geom.Shape;
 
 import fr.imt.fa20.kangourou.character.AnimationsLoader.PlayerAnimations;
 import fr.imt.fa20.kangourou.character.state.HorizontalState;
@@ -32,8 +33,8 @@ public class Player extends Character {
 		float futurX = getFuturX(delta);
 		float futurY = getFuturY(delta);
 
-		float vX = futurX - getX();
-		float vY = futurY - getY();
+		float vX = futurX - x;
+		float vY = futurY - y;
 
 		this.setX(futurX);
 		this.hitbox.setX(futurX - 7);
@@ -45,62 +46,62 @@ public class Player extends Character {
 		this.setY(futurY);
 		this.hitbox.setY(futurY - 21);
 		if (isCollision()) { // Collision
-			this.setY(getY() - vY);
-			this.hitbox.setY(hitbox.getY() - vY);
-			this.handelingJumpWhenCollision();
+			if(vY>0){
+				rollbackFromCollide(getCollider(), vY>0);
+			}else{
+				y = y - vY;
+				hitbox.setY(hitbox.getMinY() - vY);
+			}
+
+			handleJumpState(true);
 		} else {// No collision
-			this.handelingJumpWhenNoCollision();
+			handleJumpState(false);
 		}
 	}
 
-	private void handelingJumpWhenCollision() {
-		switch (this.getVerticalState()) {
-		case PREPARING_JUMP:
-			velocityY = JUMP_VELOCITY;
-			break;
-		case JUMPING:
-			this.setVerticalState(VerticalState.FALLING);
-			velocityY = 0;
-			break;
-		case FALLING:
-			this.setVerticalState(VerticalState.LANDING);
-			velocityY = 0;
-			break;
-		case LANDING:
-			this.setVerticalState(VerticalState.NONE);
-			break;
-		case NONE:
-			break;
-		}
+	private void rollbackFromCollide(Shape collider, boolean down){
+		//casting to int bug the thing if the collider is higher
+		do{
+			y = (int)y + ((down) ? -0.01f : 0.01f);
+			hitbox.setY((int)hitbox.getMinY() + ((down) ? -0.01f : 0.01f));
+		}while(hitbox.intersects(collider));
 	}
 
-
-
-	private void handelingJumpWhenNoCollision() {
-		switch (this.getVerticalState()) {
+	private void handleJumpState(boolean collide){
+		switch(getVerticalState()){
 		case PREPARING_JUMP:
 			velocityY = JUMP_VELOCITY;
 			this.setVerticalState(VerticalState.JUMPING);
 			break;
 		case JUMPING:
-		case FALLING:
 			velocityY += GRAVITY;
-			this.setVerticalState(this.getVelocityY() < 0 ? VerticalState.JUMPING : VerticalState.FALLING);
-			break;
-		case LANDING:
-			this.setVerticalState(VerticalState.NONE);
-			velocityY = 0;
-			break;
-		case NONE:
-			if (velocityY == 0) {
-				this.setVelocityY(GRAVITY);
-			} else {
-				this.setVerticalState(VerticalState.FALLING);
+			if(collide ||velocityY >= 0.0f){
+				setVerticalState(VerticalState.FALLING);
 			}
+		break;
+		case FALLING:
+			velocityY += GRAVITY;	
+			if(collide){
+				setVerticalState(VerticalState.LANDING);
+			}
+		break;
+		case LANDING:
+			velocityY = GRAVITY;
+			setVerticalState(VerticalState.NONE);
+		break;
+		case NONE:
+			velocityY = GRAVITY;
+			if(!collide){
+				setVerticalState(VerticalState.FALLING);
+			}
+		break;
 		}
 	}
   
-  private boolean isCollision() {
+  	private boolean isCollision() {
+		return getCollider() != null;
+	}
+	private Shape getCollider(){
 		return this.getMap().isCollision(this.hitbox);
 	}
 
