@@ -14,7 +14,7 @@ import fr.imt.fa20.kangourou.map.Map;
 public class Player extends Character {
 
 	private static final int SPRITE_Y_INDEX = 0;
-	private static final float JUMP_VELOCITY = -.14f;
+	private static final float JUMP_VELOCITY = -3.5f;
 	private PlayerAnimations animations;
 
 	public Player(Map map) {
@@ -120,7 +120,7 @@ public class Player extends Character {
 	}
 
 	protected float getFuturY(int delta) {
-		return this.getY() + this.getVelocityY() * delta;
+		return this.getY() + this.getVelocityY();
 	}
 	
 

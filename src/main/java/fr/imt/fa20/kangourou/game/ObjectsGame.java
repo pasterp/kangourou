@@ -28,7 +28,9 @@ public class ObjectsGame extends BasicGame {
 	public static void main(String[] args) throws SlickException {
 		NativeLoader loader = new NativeLoader();
 		loader.loadLibrary("lwjgl64");
-		new AppGameContainer(new ObjectsGame(), HEIGHT, WIDTH, false).start();
+		AppGameContainer app = new AppGameContainer(new ObjectsGame(), HEIGHT, WIDTH, false);
+		app.setAlwaysRender(true);
+		app.start();
 	}
 
 	public ObjectsGame() {
