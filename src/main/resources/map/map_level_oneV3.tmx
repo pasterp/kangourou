@@ -6,7 +6,7 @@
  <tileset firstgid="528" source="forest2.tsx"/>
  <layer name="bg" width="60" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACtvLxMCwdxSP4lE8ZPFKIF4FxKsHgVvo5TcdIN4zCNxHbbwL6jd08ZHm31E8iocDBgAFoPyQYAkAAA==
+   H4sIAAAAAAAACtvLxMCwdxSP4lE8ZPFKIF4FxKsHgVvo5TcdIN4zCNxHbbwL6jd08ZHm31GMiokBMHUD7VZ6h8dAuwUfBgA9ayNSYAkAAA==
   </data>
  </layer>
  <layer name="water" width="60" height="10">
@@ -16,17 +16,12 @@
  </layer>
  <layer name="roof" width="60" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACjvAxMBwAA/+DMQ6QPwIhzg2OWLNIAaj60W2Fx3jciOyOCGwH6ruIBN2cWxyxJpBDPCFuhemdz8T7rDB5UZy7B0oAPLvhiHkXkrBSPPv/iGWHkfBKBgFo4BaAADXr3a+YAkAAA==
+   H4sIAAAAAAAACtvMxMCgA8SPgPgAFvwZhzxMHJ9eQmYQg9H1ItuLjnG5EV0viH8QiLGB/VC16PL7kczFpZeQGcQAXzT37WfCHTa43AgTXwf1rz8Z7qAXAPl3A5XcNxL9iy8tDwawn4ruWzeI/UkLMOrfUTAKhjYAACHESglgCQAA
   </data>
  </layer>
  <layer name="ground" width="60" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACu1TMQ7CMAyMMgEtM2obmJFoXwEszKif5gt9DBepVoPlhlBcxFBLt8S+y53iGDO9bvYLstI91Bub+ZXHpZaSqgTWwHYm/TP2+wJc/2TPHbAHGkU/YcZ7r9sq6pfQqgD3oWYGdOAcrW5eqnamvCdo1RM809tqvy+Vz5ibV6yAis3RnyJsBE7Y7/q8D6bv37xgObKA73mUl3P5Xfx/+53a2bjP3Az6hAI4MC0nzHFOyrm0p5K2pMfPuEfaKWn2nV4s71i2FM/SjrsEXakXyxvjPQHkz5t5YAkAAA==
-  </data>
- </layer>
- <layer name="lader" width="60" height="10">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACmNgGAWjYBTQGvACsc9AO4LOIHagHUBnMNL8mzfQDhgFo2CQAwBR1ihpYAkAAA==
+   H4sIAAAAAAAACuWTQQrCMBBFh67U1rW0ja4F9RTqxrX0mII3EFz2Cr2FF3AGEo3TaUw0hUIH/ibJ/5nHJAC/1yn5wxzpHrPXdYbWt5bGUDfkfIyIl+oyUN4CVfaQa3j3qAPqOBB2hVpFziTGK+qOOmvOKiJvgVklSgVmpqgGPTVqHq+dV1U98W7029kFZtJsl1qhXp8ixgw+NYH2/6E/NbU0Ezz2fqN5a5ZPM88ZR2r5yWd4uZffxedPb2qRuPvM4J1vlEP7/yjhHPf4rK+FmUvZUh5f4z2aNyWd/Zbn4u1i8+lZeuPKI1fac/G6fE9M5vDhYAkAAA==
   </data>
  </layer>
  <layer name="front_cave" width="60" height="10">
@@ -41,12 +36,12 @@
  </layer>
  <layer name="grass" width="60" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACmNgGAWjYBSMglEwXEAJE3bxVhzixABi9OKyl9puGQWjYKgAABosV79gCQAA
+   H4sIAAAAAAAACmNgGAWjYBSMgqEBNjANtAvoC8jxbwkOPa0UhB0xenHZS4x55VA8CkbBcAIA3TnvwWAJAAA=
   </data>
  </layer>
- <layer name="logic" width="60" height="10">
+ <layer name="logic" width="60" height="10" visible="0">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACuWUDQqAIAyF9QZ6A7uV9z9JExqM8QY21w/14BG29thXZskpFXI9rl/2YOzkRt7ISPxczfh+AbXZjBnpXrmWHGgO3dsneJ8WM0Xojbxy/8l1RO5feDmDeaMl/ytPX+QelrqKtzn3zB281rmN5pDnoNeaYyXXM6NVs947fzevEa831zOjVdNZLcCIdyXr7IyjZwdPakJAYAkAAA==
+   H4sIAAAAAAAACs2U0Q2AIAxEYQPYALdi/0kMkQ9S76BgUV/SBAo9eyo4dxG9c4FEgeXZmlZjpZbR6xHtY2uxBsoHsKbV0CBr23nw/T7k3jb/V0bfdEYHjb+GnRUL3UI20rNip99cw5pAzpO2zsqjZJffVDWPBb9obEX293fK7jl5D46igPLSB7tftc+Y7RGBtKxAfleQ/86THi21JFIrvez3BBO7DqxgCQAA
   </data>
  </layer>
 </map>
