@@ -22,7 +22,7 @@ public class Map {
 	public void init() throws SlickException {
 		this.tiledMap = new TiledMap("map/map_level_oneV3.tmx");
 
-		collisions = new LinkedList<>();
+		collisions = new LinkedList<Rectangle>();
 		int logicLayer = tiledMap.getLayerIndex("logic");
 		int tileSize = tiledMap.getTileWidth();
 

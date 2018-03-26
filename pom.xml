@@ -10,9 +10,9 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<main.class>fr.imt.fa20.kangourou.Game</main.class>
-		<maven.compiler.source>1.6</maven.compiler.source>
-		<maven.compiler.target>1.6</maven.compiler.target>
+		<main.class>fr.imt.fa20.kangourou.game.ObjectsGame</main.class>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
 	<repositories>
@@ -50,7 +50,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>fr.imt.fa20.kangourou.Game</mainClass>
+							<mainClass>fr.imt.fa20.kangourou.game.ObjectsGame</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
