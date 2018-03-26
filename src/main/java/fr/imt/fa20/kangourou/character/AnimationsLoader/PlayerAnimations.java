@@ -51,8 +51,8 @@ public class PlayerAnimations extends AnimationsLoader {
 		this.suffer_left = this.loadHorizontalFlipAnimation(8, 9, 8);
 		this.slash_right = this.loadAnimation(11, 10, 11, 12);
 		this.slash_left = this.loadHorizontalFlipAnimation(11, 10, 11, 12);
-		this.punch_right = this.loadAnimation(11, 13, 12);
-		this.punch_left = this.loadHorizontalFlipAnimation(11, 13, 12);
+		this.punch_right = this.loadAnimation(11, 12,13);
+		this.punch_left = this.loadHorizontalFlipAnimation(11, 12,13);
 		this.run_right = this.loadAnimation(14, 15, 16, 17);
 		this.run_left = this.loadHorizontalFlipAnimation(14, 15, 16, 17);
 		this.climb = this.loadAnimation(18, 19, 20, 21);

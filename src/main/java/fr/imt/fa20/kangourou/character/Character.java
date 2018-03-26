@@ -11,6 +11,7 @@ import fr.imt.fa20.kangourou.map.Map;
 
 public abstract class Character {
 	public static final float GRAVITY = 0.001f;
+	public static final float BOOST_VELOCITY_Y = -0.3f;
 
 	private float x = 90, y = 70;
 	float velocityY; // Velocity of the character
@@ -42,9 +43,9 @@ public abstract class Character {
 	public void render(Graphics g) {
 		// coordonnées d'affichage correspondant aux pieds du personnage
 		g.drawAnimation(this.getAnimation(), (int) x - 16, (int) y - 32);
-		
-//		g.draw(hitbox);
-		
+
+		// g.draw(hitbox);
+
 	}
 
 	public float getX() {

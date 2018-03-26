@@ -5,10 +5,6 @@ import fr.imt.fa20.kangourou.character.Character;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
-import org.newdawn.slick.geom.Polygon;
-import org.newdawn.slick.geom.Rectangle;
-import org.newdawn.slick.geom.Shape;
-import org.newdawn.slick.geom.Transform;
 
 import fr.imt.fa20.kangourou.character.AnimationsLoader.PlayerAnimations;
 import fr.imt.fa20.kangourou.character.state.HorizontalState;
@@ -17,7 +13,10 @@ import fr.imt.fa20.kangourou.map.Map;
 
 public class Player extends Character {
 
-	private static final int SPRITE_Y_INDEX = 0;
+	private static final int SPRITE_Y_INDEX = 1;
+	private static final int SPRITE_WIDTH = 32;
+	private static final int SPRITE_HEIGHT = 32;
+
 	private PlayerAnimations animations;
 
 	public Player(Map map) {
@@ -25,7 +24,7 @@ public class Player extends Character {
 	}
 
 	public void init() throws SlickException {
-		SpriteSheet spriteSheet = new SpriteSheet("sprites/characters.png", 32, 32);
+		SpriteSheet spriteSheet = new SpriteSheet("sprites/characters.png", SPRITE_WIDTH, SPRITE_HEIGHT);
 		this.animations = new PlayerAnimations(spriteSheet, SPRITE_Y_INDEX);
 	}
 
@@ -58,7 +57,7 @@ public class Player extends Character {
 	private void handelingJumpWhenCollision() {
 		switch (this.getVerticalState()) {
 		case PREPARING_JUMP:
-			this.setVelocityY(-0.3f);
+			this.setVelocityY(BOOST_VELOCITY_Y);
 			break;
 		case JUMPING:
 			this.setVerticalState(VerticalState.FALLING);
@@ -75,8 +74,6 @@ public class Player extends Character {
 			break;
 		}
 	}
-
-
 
 	private void handelingJumpWhenNoCollision() {
 		switch (this.getVerticalState()) {
@@ -98,10 +95,11 @@ public class Player extends Character {
 			} else {
 				this.setVerticalState(VerticalState.FALLING);
 			}
+			break;
 		}
 	}
-  
-  private boolean isCollision() {
+
+	private boolean isCollision() {
 		return this.getMap().isCollision(this.hitbox);
 	}
 
@@ -141,13 +139,11 @@ public class Player extends Character {
 			case LANDING:
 				animation = this.animations.getLanding(this.getDirection());
 				break;
+			default:
+				break;
 			}
 		} else {
 			switch (this.getHorizontalState()) {
-			// case PREPARING_JUMP:
-			// animation = this.animations.getJumpPreparation(this.getDirection());
-			// break;
-
 			case STANDING_BY:
 				animation = this.animations.getStandgBy(this.getDirection());
 				break;
