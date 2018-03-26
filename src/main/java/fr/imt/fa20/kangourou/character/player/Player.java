@@ -119,9 +119,9 @@ public class Player extends Character {
 	}
 
 	protected float getFuturY(int delta) {
-		return this.getY() + this.getVelocityY();
-
+		return this.getY() + this.getVelocityY() ;
 	}
+	
 
 	protected Animation getAnimation() {
 		Animation animation = new Animation();
