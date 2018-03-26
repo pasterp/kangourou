@@ -5,10 +5,6 @@ import fr.imt.fa20.kangourou.character.Character;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
-import org.newdawn.slick.geom.Polygon;
-import org.newdawn.slick.geom.Rectangle;
-import org.newdawn.slick.geom.Shape;
-import org.newdawn.slick.geom.Transform;
 
 import fr.imt.fa20.kangourou.character.AnimationsLoader.PlayerAnimations;
 import fr.imt.fa20.kangourou.character.state.HorizontalState;
@@ -18,6 +14,7 @@ import fr.imt.fa20.kangourou.map.Map;
 public class Player extends Character {
 
 	private static final int SPRITE_Y_INDEX = 0;
+	private static final float JUMP_VELOCITY = -.14f;
 	private PlayerAnimations animations;
 
 	public Player(Map map) {
@@ -30,6 +27,7 @@ public class Player extends Character {
 	}
 
 	public void update(int delta) {
+		//delta in ms
 
 		float futurX = getFuturX(delta);
 		float futurY = getFuturY(delta);
@@ -58,15 +56,15 @@ public class Player extends Character {
 	private void handelingJumpWhenCollision() {
 		switch (this.getVerticalState()) {
 		case PREPARING_JUMP:
-			this.setVelocityY(-0.3f);
+			velocityY = JUMP_VELOCITY;
 			break;
 		case JUMPING:
 			this.setVerticalState(VerticalState.FALLING);
-			this.setVelocityY(GRAVITY);
+			velocityY = 0;
 			break;
 		case FALLING:
 			this.setVerticalState(VerticalState.LANDING);
-			this.setVelocityY(0);
+			velocityY = 0;
 			break;
 		case LANDING:
 			this.setVerticalState(VerticalState.NONE);
@@ -81,19 +79,20 @@ public class Player extends Character {
 	private void handelingJumpWhenNoCollision() {
 		switch (this.getVerticalState()) {
 		case PREPARING_JUMP:
+			velocityY = JUMP_VELOCITY;
 			this.setVerticalState(VerticalState.JUMPING);
 			break;
 		case JUMPING:
 		case FALLING:
-			this.setVelocityY(this.getVelocityY() + GRAVITY);
+			velocityY += GRAVITY;
 			this.setVerticalState(this.getVelocityY() < 0 ? VerticalState.JUMPING : VerticalState.FALLING);
 			break;
 		case LANDING:
 			this.setVerticalState(VerticalState.NONE);
-			this.setVelocityY(0);
+			velocityY = 0;
 			break;
 		case NONE:
-			if (this.getVelocityY() == 0) {
+			if (velocityY == 0) {
 				this.setVelocityY(GRAVITY);
 			} else {
 				this.setVerticalState(VerticalState.FALLING);
@@ -121,7 +120,7 @@ public class Player extends Character {
 	}
 
 	protected float getFuturY(int delta) {
-		return this.getY() + this.getVelocityY() ;
+		return this.getY() + this.getVelocityY() * delta;
 	}
 	
 
