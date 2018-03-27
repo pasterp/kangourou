@@ -23,12 +23,14 @@ public class ObjectsGame extends BasicGame {
 	private Map map = new Map();
 	private Player player = new Player(map);
 	private TriggerController triggers = new TriggerController(map, player);
-	private Camera camera = new Camera(player);
+	private Camera camera;
 
 	public static void main(String[] args) throws SlickException {
 		NativeLoader loader = new NativeLoader();
 		loader.loadLibrary("lwjgl64");
-		new AppGameContainer(new ObjectsGame(), HEIGHT, WIDTH, false).start();
+		AppGameContainer app = new AppGameContainer(new ObjectsGame(), HEIGHT, WIDTH, false);
+		app.setAlwaysRender(true);
+		app.start();
 	}
 
 	public ObjectsGame() {
@@ -40,6 +42,7 @@ public class ObjectsGame extends BasicGame {
 		this.container = container;
 		this.map.init();
 		this.player.init();
+		camera = new Camera(player,container);
 		PlayerController controler = new PlayerController(this.player, container.getInput());
 		container.getInput().addKeyListener(controler);
 		this.container = container;
@@ -49,7 +52,7 @@ public class ObjectsGame extends BasicGame {
 	public void render(GameContainer container, Graphics g) throws SlickException {
 		g.scale(2, 2);// double graphical size
 
-		this.camera.place(container, g);
+		this.camera.place(g);
 		this.map.renderBackground();
 		this.player.render(g);
 		this.map.renderForeground(g);
@@ -59,7 +62,7 @@ public class ObjectsGame extends BasicGame {
 	public void update(GameContainer container, int delta) throws SlickException {
 		this.triggers.update();
 		this.player.update(delta);
-		this.camera.update(container);
+		this.camera.update();
 	}
 
 	@Override

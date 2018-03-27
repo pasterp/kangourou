@@ -5,6 +5,7 @@ import fr.imt.fa20.kangourou.character.Character;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
+import org.newdawn.slick.geom.Shape;
 
 import fr.imt.fa20.kangourou.character.AnimationsLoader.PlayerAnimations;
 import fr.imt.fa20.kangourou.character.state.HorizontalState;
@@ -13,10 +14,8 @@ import fr.imt.fa20.kangourou.map.Map;
 
 public class Player extends Character {
 
-	private static final int SPRITE_Y_INDEX = 1;
-	private static final int SPRITE_WIDTH = 32;
-	private static final int SPRITE_HEIGHT = 32;
-
+	private static final int SPRITE_Y_INDEX = 0;
+	private static final float JUMP_VELOCITY = -3.5f;
 	private PlayerAnimations animations;
 
 	public Player(Map map) {
@@ -24,17 +23,18 @@ public class Player extends Character {
 	}
 
 	public void init() throws SlickException {
-		SpriteSheet spriteSheet = new SpriteSheet("sprites/characters.png", SPRITE_WIDTH, SPRITE_HEIGHT);
+		SpriteSheet spriteSheet = new SpriteSheet("sprites/characters.png", 32, 32);
 		this.animations = new PlayerAnimations(spriteSheet, SPRITE_Y_INDEX);
 	}
 
 	public void update(int delta) {
+		//delta in ms
 
 		float futurX = getFuturX(delta);
 		float futurY = getFuturY(delta);
 
-		float vX = futurX - getX();
-		float vY = futurY - getY();
+		float vX = futurX - x;
+		float vY = futurY - y;
 
 		this.setX(futurX);
 		this.hitbox.setX(futurX - 7);
@@ -46,60 +46,62 @@ public class Player extends Character {
 		this.setY(futurY);
 		this.hitbox.setY(futurY - 21);
 		if (isCollision()) { // Collision
-			this.setY(getY() - vY);
-			this.hitbox.setY(hitbox.getY() - vY);
-			this.handelingJumpWhenCollision();
+			if(vY>0){
+				rollbackFromCollide(getCollider(), vY>0);
+			}else{
+				y = y - vY;
+				hitbox.setY(hitbox.getMinY() - vY);
+			}
+
+			handleJumpState(true);
 		} else {// No collision
-			this.handelingJumpWhenNoCollision();
+			handleJumpState(false);
 		}
 	}
 
-	private void handelingJumpWhenCollision() {
-		switch (this.getVerticalState()) {
-		case PREPARING_JUMP:
-			this.setVelocityY(BOOST_VELOCITY_Y);
-			break;
-		case JUMPING:
-			this.setVerticalState(VerticalState.FALLING);
-			this.setVelocityY(GRAVITY);
-			break;
-		case FALLING:
-			this.setVerticalState(VerticalState.LANDING);
-			this.setVelocityY(0);
-			break;
-		case LANDING:
-			this.setVerticalState(VerticalState.NONE);
-			break;
-		case NONE:
-			break;
-		}
+	private void rollbackFromCollide(Shape collider, boolean down){
+		//casting to int bug the thing if the collider is higher
+		do{
+			y = (int)y + ((down) ? -0.01f : 0.01f);
+			hitbox.setY((int)hitbox.getMinY() + ((down) ? -0.01f : 0.01f));
+		}while(hitbox.intersects(collider));
 	}
 
-	private void handelingJumpWhenNoCollision() {
-		switch (this.getVerticalState()) {
+	private void handleJumpState(boolean collide){
+		switch(getVerticalState()){
 		case PREPARING_JUMP:
+			velocityY = JUMP_VELOCITY;
 			this.setVerticalState(VerticalState.JUMPING);
 			break;
 		case JUMPING:
-		case FALLING:
-			this.setVelocityY(this.getVelocityY() + GRAVITY);
-			this.setVerticalState(this.getVelocityY() < 0 ? VerticalState.JUMPING : VerticalState.FALLING);
-			break;
-		case LANDING:
-			this.setVerticalState(VerticalState.NONE);
-			this.setVelocityY(0);
-			break;
-		case NONE:
-			if (this.getVelocityY() == 0) {
-				this.setVelocityY(GRAVITY);
-			} else {
-				this.setVerticalState(VerticalState.FALLING);
+			velocityY += GRAVITY;
+			if(collide ||velocityY >= 0.0f){
+				setVerticalState(VerticalState.FALLING);
 			}
-			break;
+		break;
+		case FALLING:
+			velocityY += GRAVITY;	
+			if(collide){
+				setVerticalState(VerticalState.LANDING);
+			}
+		break;
+		case LANDING:
+			velocityY = GRAVITY;
+			setVerticalState(VerticalState.NONE);
+		break;
+		case NONE:
+			velocityY = GRAVITY;
+			if(!collide){
+				setVerticalState(VerticalState.FALLING);
+			}
+		break;
 		}
 	}
-
-	private boolean isCollision() {
+  
+  	private boolean isCollision() {
+		return getCollider() != null;
+	}
+	private Shape getCollider(){
 		return this.getMap().isCollision(this.hitbox);
 	}
 
@@ -119,7 +121,7 @@ public class Player extends Character {
 	}
 
 	protected float getFuturY(int delta) {
-		return this.getY() + this.getVelocityY() ;
+		return this.getY() + this.getVelocityY();
 	}
 	
 
@@ -139,11 +141,13 @@ public class Player extends Character {
 			case LANDING:
 				animation = this.animations.getLanding(this.getDirection());
 				break;
-			default:
-				break;
 			}
 		} else {
 			switch (this.getHorizontalState()) {
+			// case PREPARING_JUMP:
+			// animation = this.animations.getJumpPreparation(this.getDirection());
+			// break;
+
 			case STANDING_BY:
 				animation = this.animations.getStandgBy(this.getDirection());
 				break;
