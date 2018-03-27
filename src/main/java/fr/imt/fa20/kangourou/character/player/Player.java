@@ -70,8 +70,12 @@ public class Player extends Character {
 	private void handleJumpState(boolean collide){
 		switch(getVerticalState()){
 		case PREPARING_JUMP:
-			velocityY = JUMP_VELOCITY;
-			this.setVerticalState(VerticalState.JUMPING);
+			velocityY += (JUMP_VELOCITY/4.0f);
+			if(Math.abs(velocityY) >= Math.abs(JUMP_VELOCITY)){
+				this.setVerticalState(VerticalState.JUMPING);			
+			}else{
+				this.setVerticalState(VerticalState.PREPARING_JUMP);
+			}
 			break;
 		case JUMPING:
 			velocityY += GRAVITY;
