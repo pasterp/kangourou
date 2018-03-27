@@ -3,36 +3,45 @@ package fr.imt.fa20.kangourou.camera;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 
-import fr.imt.fa20.kangourou.character.player.Player;
+import fr.imt.fa20.kangourou.character.Character;
 
 public class Camera {
 
-	private Player player;
-	private float xCamera, yCamera;
+	private Character player;
+	private float xCamera, yCamera, w, h;
+	GameContainer container;
 
-	public Camera(Player player) {
+	public Camera(Character player, GameContainer container) {
+		this.container = container;
 		this.player = player;
-		this.xCamera = player.getX();
-		this.yCamera = player.getY();
+		
+		yCamera = 0; //Until map be taller
+		xCamera = player.getX();
+
+		w = container.getWidth()/32.f; //20
+		h = container.getHeight()/32.f; //10
 	}
 
-	public void place(GameContainer container, Graphics g) {
-		g.translate(container.getWidth() / 6 - (int) this.xCamera, container.getHeight() /32);
+	public void place(Graphics g) {
+		g.translate(-xCamera,yCamera);
+		//negative x is going to right
+		//x is pixel based move
+		// (0,0) is upper-left of the map
 	}
 
-	public void update(GameContainer container) {
-		int w = container.getWidth() / 32;
-		if (this.player.getX() > this.xCamera + w) {
-			this.xCamera = this.player.getX() - w;
-		} else if (this.player.getX() < this.xCamera - w) {
-			this.xCamera = this.player.getX() + w;
+	public void update() {
+
+		if(player.getX() > xCamera + 6*w){
+			xCamera = player.getX() - 6*w ;
 		}
-		int h = container.getHeight() / 32;
-		if (this.player.getY() > this.yCamera + h) {
-			this.yCamera = this.player.getY() - h;
-		} else if (this.player.getY() < this.yCamera - h) {
-			this.yCamera = this.player.getY() + h;
+		if(player.getX() < xCamera + 5*w){
+			xCamera = player.getX() - 5*w;
 		}
+
+
+
+		xCamera = Math.max(xCamera, 0);
+		xCamera = Math.min(xCamera, (player.getMap().width-20)*16);
 	}
 
 }
