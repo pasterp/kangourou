@@ -2,18 +2,13 @@ package fr.imt.fa20.kangourou.map;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.logging.Level;
 
-import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.geom.GeomUtil;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
-import org.newdawn.slick.geom.Transform;
 import org.newdawn.slick.tiled.TiledMap;
-import org.w3c.dom.css.Rect;
 
 public class Map {
 	private TiledMap tiledMap;
