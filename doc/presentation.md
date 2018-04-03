@@ -2,17 +2,17 @@
 - Durée : 15-20 min
 - Critères d’évaluation : présentation > technique/méthodologie
 
-## 1.	Démonstration
+## 1.	Démonstration (William)
 1. Test
 2. Présentation fonctionnalité
 
-## 2.	Choix technique
+## 2.	Choix technique (Pascal - Gildas)
 1. Slick2D : découverte, doc, difficulté…
 2. Algo
 3. Code review
 
-## 3.	Méthodologie de projet
-### 1. Outisl: Maven, git, slack, visio conf…
+## 3.	Méthodologie de projet (Gildas - Louis)
+### 1. Outisl: Maven, git, slack, visio conf… 
 - Maven:
   - gestion des dépendances
   - build et packaging
@@ -42,7 +42,7 @@
   - Plus lent et compliqué que le travail en "présentiel"
   - Il y a eu quelques tensions durant les 6 semaines. La distance n'a pas arrangé les choses.
 
-## 4.	Apprentissage et conclusion
+## 4.	Apprentissage et conclusion (William)
 1. Ecart ambition/rendu
 2. Ce qu’on garde pour la prochaine fois
 3. Ce qu’on améliorera la prochaine fois
