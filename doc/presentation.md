@@ -44,6 +44,13 @@
 
 ## 4.	Apprentissage et conclusion (William)
 1. Ecart ambition/rendu
+- Un seul personnage
+- Un seul niveau
+- Beaucoup d'idées qui n'ont pas étés implémentés : pièges, inversion de la gravité, plateformes mobiles, etc..
 2. Ce qu’on garde pour la prochaine fois
+- Les réunions hébdomadaire
+- le wiki de github et les issues pour savoir quoi faire et avoir un historique des réunions
 3. Ce qu’on améliorera la prochaine fois
+- Passer plus rapidement sur un projet commun
+ 
 
