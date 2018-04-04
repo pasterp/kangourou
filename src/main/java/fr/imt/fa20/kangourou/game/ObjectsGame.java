@@ -5,7 +5,6 @@ import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
-import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 
 import fr.imt.fa20.kangourou.camera.Camera;
@@ -28,8 +27,13 @@ public class ObjectsGame extends BasicGame {
 	public static void main(String[] args) throws SlickException {
 		NativeLoader loader = new NativeLoader();
 		loader.loadLibrary("lwjgl64");
+		
 		AppGameContainer app = new AppGameContainer(new ObjectsGame(), HEIGHT, WIDTH, false);
+		
 		app.setAlwaysRender(true);
+		app.setTargetFrameRate(60);
+		app.setVSync(true);
+
 		app.start();
 	}
 
