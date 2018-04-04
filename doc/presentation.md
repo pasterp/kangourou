@@ -43,6 +43,10 @@
   - Il y a eu quelques tensions durant les 6 semaines. La distance n'a pas arrangé les choses.
 
 ## 4.	Apprentissage et conclusion (William)
+0. problèmes rencontrès
+- Gravité très lente
+- collisions
+- 
 1. Ecart ambition/rendu
 - Un seul personnage
 - Un seul niveau
